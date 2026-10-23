@@ -189,6 +189,7 @@ export function buildPublicCv(raw, baselinePath) {
       location: baseline.personal_info.location,
       website: info.website,
       github: baseline.personal_info.github,
+      photo: baseline.personal_info.photo,
     },
     summary: curateSummary(raw.summary),
     highlights: baseline.highlights,

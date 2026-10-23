@@ -7,6 +7,7 @@ export type PersonalInfo = {
   location: string;
   website: string;
   github?: string;
+  photo?: string;
 };
 
 export type Highlight = { label: string; value: string };

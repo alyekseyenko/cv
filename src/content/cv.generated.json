@@ -7,7 +7,8 @@
     "phone": "+351910799500",
     "location": "Portugal · remote (EU / US)",
     "website": "https://www.linkedin.com/in/vadym-alyekseyenko-0113b11b0/",
-    "github": "https://github.com/alyekseyenko"
+    "github": "https://github.com/alyekseyenko",
+    "photo": "/profile.jpeg"
   },
   "summary": "Digital transformation and AI automation lead for HABITARMOS / ESTORESRAINHA GROUP (four brands): built HABITAI cockpit unifying ERP, CRM, logistics, inventory AI, marketing ops, and field apps. Architected PHC cloud read-replica (5M+ rows, dbt marts, Metabase BI for leadership) and 80+ production workflows (~22.5k n8n runs/7d; n8n, Zoho Flow, Make.com). Innovation Hub: 55 projects, ~465h/month saved.",
   "highlights": [
