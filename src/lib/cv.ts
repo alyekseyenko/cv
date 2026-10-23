@@ -1,3 +1,4 @@
-import { cvPublic } from "@/content/cv.public";
+import type { CvData } from "@/lib/cv-types";
+import generated from "@/content/cv.generated.json";
 
-export const cv = cvPublic;
+export const cv = generated as CvData;

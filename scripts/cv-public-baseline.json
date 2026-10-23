@@ -1,0 +1,98 @@
+{
+  "personal_info": {
+    "title": "AI & Automation Engineer · Digital Transformation Lead",
+    "tagline": "I build and run production AI and automation systems for a four-brand group, partnering with owners on strategy and delivery.",
+    "location": "Portugal · remote (EU / US)",
+    "github": "https://github.com/alyekseyenko"
+  },
+  "highlights": [
+    { "label": "Production workflows", "value": "80+" },
+    { "label": "Hours saved monthly", "value": "~465h" },
+    { "label": "Daily field app users", "value": "40" },
+    { "label": "Distributors synced", "value": "500+" },
+    { "label": "ERP rows in cloud replica", "value": "5M+" }
+  ],
+  "featured_project_ids": [
+    "habitai_unified_platform",
+    "phc_cloud_data_platform_elt",
+    "blinds_field_ops_pwa",
+    "orcamentos_ia_platform",
+    "alygen_crm_b2b",
+    "container_risk_radar_habitarmos"
+  ],
+  "project_overlays": {
+    "habitai_unified_platform": {
+      "title": "HABITAI · Unified Operations Platform",
+      "problem": "Operations data lived in ERP, CRM, logistics, and spreadsheets with no single place for owners or field teams to act.",
+      "built": "Operations cockpit tying PHC data, CRM sync, automation, inventory signals, and agent-assisted Q&A on governed metrics."
+    },
+    "phc_cloud_data_platform_elt": {
+      "title": "PHC ERP · Cloud Read Replica",
+      "problem": "CRM and automations could not safely use live ERP data without exposing on-prem SQL or copying numbers by hand.",
+      "built": "Hybrid sync to PostgreSQL on a VPS, dbt marts, role-scoped access, and executive dashboards for two PHC tenants."
+    },
+    "blinds_field_ops_pwa": {
+      "title": "app-tecnicos · Field Operations PWA",
+      "problem": "Field service ran on paper: slow customer updates, lost technician time, and no shared schedule when clients called.",
+      "built": "Production PWA with offline queue, maps and routing, warehouse module, and Twenty CRM sync on Hetzner."
+    },
+    "orcamentos_ia_platform": {
+      "title": "orcamentos-ia · Multi-Supplier Quoting",
+      "problem": "Quotes depended on manual PDF and spreadsheet work; sales waited days while prices had to stay auditable.",
+      "built": "FastAPI and React platform with supplier plug-ins, deterministic pricing tiers, PDF ingestion, and CRM handoff."
+    },
+    "alygen_crm_b2b": {
+      "title": "Alygen CRM · B2B Outreach Stack",
+      "problem": "Freelance prospecting meant hours of manual site audits and slow, generic proposals per lead.",
+      "built": "Open-source CRM with automated technical audits, ML lead scoring, agent-assisted copy, and email and messaging dispatch."
+    },
+    "container_risk_radar_habitarmos": {
+      "title": "Container Risk Radar · Fleet Observability",
+      "problem": "Websites, VPS hosts, containers, and automations were monitored in separate tools with no shared risk picture.",
+      "built": "Docker Compose observability stack with Prometheus, Loki, Grafana, scoring engine, and a Next.js control dashboard."
+    }
+  },
+  "other_work": [
+    {
+      "id": "zohosync",
+      "title": "ZohoSync · PHC to Zoho Bigin",
+      "summary": "Commercial sync for 500+ distributors: accounts, contacts, pipeline, and rep KPIs from ERP truth."
+    },
+    {
+      "id": "brand_sites",
+      "title": "Group brand websites",
+      "summary": "WordPress across four public brands including habitarmos.com, estoresrainha.com, arkitek.pt, and skuba.com.pt."
+    },
+    {
+      "id": "rute_carreira",
+      "title": "Rute Carreira · coaching & wellness",
+      "summary": "End-to-end WordPress and WooCommerce stack, SEO, and ticketing sites that support daily leads and product sales."
+    },
+    {
+      "id": "jobfinder",
+      "title": "LinkedIn Jobfinder Scout",
+      "summary": "Portfolio agent system for job matching, ATS PDF export, and structured CV ingestion (not affiliated with LinkedIn)."
+    },
+    {
+      "id": "praxis",
+      "title": "Praxis · agent coding harness",
+      "summary": "R&D sandbox with Docker evaluation gates, human approval UI, and vector memory for safer coding agents.",
+      "link": "https://github.com/alyekseyenko/praxis-alygen"
+    },
+    {
+      "id": "lfgbot",
+      "title": "LFG Valorant · Discord community",
+      "summary": "Discord bot and web app for matchmaking, moderation, and guild analytics for a gaming community."
+    }
+  ],
+  "certification_allowlist": [
+    "Microsoft Generative AI Engineering",
+    "Machine Learning",
+    "Generative AI Leader",
+    "Professional Scrum Master I (PSM I)",
+    "Google Advanced Data Analytics",
+    "Google IT Automation with Python",
+    "IBM AI Product Manager",
+    "Google UX Design"
+  ]
+}
