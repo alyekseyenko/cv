@@ -1,0 +1,9 @@
+services:
+  cv-site:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vadym-cv-online
+    ports:
+      - "4321:80"
+    restart: unless-stopped
