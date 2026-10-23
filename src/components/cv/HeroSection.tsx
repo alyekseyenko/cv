@@ -9,17 +9,20 @@ export function HeroSection({ info }: { info: PersonalInfo }) {
 
   return (
     <header id="top" className="pt-14 pb-8 sm:pt-20 sm:pb-10">
-      <div className="grid gap-8 lg:grid-cols-[auto_1fr] xl:grid-cols-[auto_1fr_1fr] xl:items-end xl:gap-10">
+      <div className="grid gap-8 lg:grid-cols-[minmax(0,280px)_1fr] xl:grid-cols-[minmax(0,320px)_1fr_minmax(0,280px)] xl:items-start xl:gap-12">
         {photoSrc ? (
-          <div className="flex justify-center lg:justify-start xl:row-span-1">
-            <Image
-              src={photoSrc}
-              alt={info.name}
-              width={160}
-              height={160}
-              priority
-              className="size-32 rounded-2xl border border-border bg-muted object-cover shadow-none sm:size-36"
-            />
+          <div className="mx-auto w-full max-w-[280px] lg:mx-0 lg:max-w-none">
+            <div className="overflow-hidden rounded-3xl border border-border bg-muted/40">
+              <Image
+                src={photoSrc}
+                alt={info.name}
+                width={640}
+                height={800}
+                priority
+                sizes="(max-width: 1024px) 280px, 320px"
+                className="aspect-[4/5] w-full object-cover object-[center_18%] sm:max-h-[min(520px,58vh)]"
+              />
+            </div>
           </div>
         ) : null}
         <div className="min-w-0 text-center lg:text-left">
@@ -32,7 +35,7 @@ export function HeroSection({ info }: { info: PersonalInfo }) {
           ) : null}
           <p className="mt-3 text-sm text-muted-foreground">{info.location}</p>
         </div>
-        <div className="flex flex-col gap-3 lg:col-span-2 xl:col-span-1 xl:col-start-3 xl:pb-1">
+        <div className="flex flex-col gap-3 lg:col-span-2 xl:col-span-1 xl:col-start-3 xl:pt-2">
           <MetaRow
             label="Email"
             value={
