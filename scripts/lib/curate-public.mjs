@@ -62,11 +62,11 @@ const BULLET_BLOCK_RE =
   /2x nominal|2,890|2890%|€6,100|€11,100|innovation_hub_roi|not audited|internal figures|growth not profit|local path:|this repo|Rute C\.|snapshot \(11:21\)|habitarmos_revenue/i;
 
 const COPY_FIXES = [
-  [/arkitek\.pt & skuba\.com\.pt \(HTML\)/gi, "arkitek.pt & skuba.com.pt (WordPress)"],
   [
-    /WordPress for corporate \(faster editorial\) and hand-built HTML for ARKITEK\/SKUBA product catalogs/gi,
-    "WordPress across all four brand sites (corporate and ARKITEK/SKUBA catalogs)",
+    /WordPress for corporate \(faster editorial\) and hand-built HTML for ARKITEK\/SKUBA/gi,
+    "custom HTML/CSS for habitarmos.com and estoresrainha.com and WordPress catalogs on arkitek.pt and skuba.com.pt",
   ],
+  [/BA in Graphic and Multimedia Design/gi, "BA in Multimedia Design"],
 ];
 
 export function normalizeCopy(text) {
@@ -114,7 +114,7 @@ function curateExperience(experience) {
     bullets: (role.bullets ?? [])
       .map((b) => normalizeCopy(b))
       .filter((b) => b && !BULLET_BLOCK_RE.test(b))
-      .slice(0, 4),
+      .slice(0, 6),
   }));
 }
 
@@ -144,10 +144,23 @@ function curateCertifications(certs, allowlist) {
 }
 
 function mapFeaturedProject(rawProject, overlay) {
-  const impact = (rawProject.edges_outcomes ?? [])
+  const fromRaw = (rawProject.edges_outcomes ?? [])
     .map((o) => normalizeCopy(o))
     .filter((o) => o && !BULLET_BLOCK_RE.test(o))
     .slice(0, 3);
+  const impact =
+    overlay.impact?.length
+      ? overlay.impact.map((o) => normalizeCopy(o))
+      : fromRaw.length
+        ? fromRaw
+        : [normalizeCopy(rawProject.context || "").slice(0, 160)];
+
+  const tech =
+    overlay.tech?.length
+      ? overlay.tech
+      : overlay.edges_skills?.length
+        ? overlay.edges_skills.slice(0, 6)
+        : pickTech(rawProject.tech_stack);
 
   return {
     id: rawProject.id,
@@ -159,8 +172,8 @@ function mapFeaturedProject(rawProject, overlay) {
     built:
       overlay.built ||
       normalizeCopy(rawProject.role || rawProject.context?.split(/(?<=[.!?])\s+/)[1] || ""),
-    impact: impact.length ? impact : [normalizeCopy(rawProject.context || "").slice(0, 160)],
-    tech: pickTech(rawProject.tech_stack),
+    impact,
+    tech,
   };
 }
 
@@ -200,7 +213,7 @@ export function buildPublicCv(raw, baselinePath) {
     skill_groups: buildSkillGroups(raw.hard_skills),
     languages: raw.languages ?? [],
     education: (raw.education ?? []).map((ed) => ({
-      degree: ed.degree,
+      degree: normalizeCopy(ed.degree),
       institution: ed.institution,
       details: normalizeCopy(ed.details),
       honors: ed.honors ? normalizeCopy(ed.honors) : undefined,

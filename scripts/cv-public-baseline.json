@@ -11,63 +11,124 @@
     { "label": "Governed ERP rows replicated", "value": "5.4M+" },
     { "label": "Deterministic quote price tiers", "value": "124k+" },
     { "label": "Customers on CRM & field stack", "value": "15k+" },
-    { "label": "B2B companies audited (ALYGEN)", "value": "6,000+" }
+    { "label": "B2B companies audited (ALYGEN)", "value": "6,000+" },
+    { "label": "Valorant LFG community (Discord)", "value": "~13k" }
   ],
   "featured_project_ids": [
     "habitai_unified_platform",
     "phc_cloud_data_platform_elt",
+    "zohosync_habitarmos",
     "blinds_field_ops_pwa",
     "orcamentos_ia_platform",
     "alygen_crm_b2b",
-    "container_risk_radar_habitarmos"
+    "container_risk_radar_habitarmos",
+    "lfg_discord_bot"
   ],
   "project_overlays": {
     "habitai_unified_platform": {
       "title": "HABITAI · Unified Operations Platform",
       "problem": "Operations data lived in ERP, CRM, logistics, and spreadsheets with no single place for owners or field teams to act.",
-      "built": "Operations cockpit tying PHC data, CRM sync, automation, inventory signals, and agent-assisted Q&A on governed metrics."
+      "built": "Operations cockpit tying PHC data, CRM sync, automation, inventory signals, and agent-assisted Q&A on governed metrics.",
+      "impact": [
+        "80+ production workflows (~22.5k n8n runs in a recent 7-day sample)",
+        "MCP read-only ERP Q&A with per-call audit logging",
+        "Single nervous system for warehouses, distributors, finance, and field ops"
+      ],
+      "tech": ["FastAPI", "React", "n8n", "PostgreSQL", "MCP", "LangGraph"]
     },
     "phc_cloud_data_platform_elt": {
       "title": "PHC ERP · Cloud Read Replica",
       "problem": "CRM and automations could not safely use live ERP data without exposing on-prem SQL or copying numbers by hand.",
-      "built": "Hybrid sync to PostgreSQL on a VPS, dbt marts, role-scoped access, and executive dashboards for two PHC tenants."
+      "built": "Hybrid sync to PostgreSQL on a VPS, dbt marts, role-scoped access, and executive dashboards for two PHC tenants.",
+      "impact": [
+        "5.4M+ governed rows across HabitArmos and Estores tenants",
+        "15-minute incremental sync; ~11k Estores customers mapped to Twenty CRM",
+        "Read-only MCP metric catalog with regression-tested definitions"
+      ],
+      "tech": ["Python", "PostgreSQL", "dbt", "SQL Server", "Metabase", "Docker"]
+    },
+    "zohosync_habitarmos": {
+      "title": "ZohoSync · PHC ↔ Zoho Commercial Intelligence",
+      "problem": "Sales leadership relied on disconnected spreadsheets instead of live ERP-backed objectives and pipeline health.",
+      "built": "FastAPI/Redis incremental bridge from PHC to Zoho Bigin with rep KPIs, distributor analytics, and HABITAI consult views.",
+      "impact": [
+        "893 Bigin accounts / 2,405 contacts / ~2k pipeline records (Oct 2026)",
+        "500+ distributor network on PHC-backed gap-to-target coaching",
+        "Feeds Gestão de Comerciais and MCP ERP Q&A"
+      ],
+      "tech": ["FastAPI", "Redis", "Zoho Bigin", "PHC ERP", "Next.js", "Python"]
     },
     "blinds_field_ops_pwa": {
       "title": "app-tecnicos · Field Operations PWA",
       "problem": "Field service ran on paper: slow customer updates, lost technician time, and no shared schedule when clients called.",
-      "built": "Production PWA with offline queue, maps and routing, warehouse module, and Twenty CRM sync on Hetzner."
+      "built": "Production PWA with offline queue, maps and routing, warehouse module, and Twenty CRM sync on Hetzner.",
+      "impact": [
+        "~40 technicians use the app daily in production",
+        "Offline-first queue for visits, photos, and status updates",
+        "Twenty CRM sync replaces manual dispatch spreadsheets"
+      ],
+      "tech": ["React", "PWA", "Twenty CRM", "GraphQL", "Hetzner", "Docker"]
     },
     "orcamentos_ia_platform": {
       "title": "orcamentos-ia · Multi-Supplier Quoting",
       "problem": "Quotes depended on manual PDF and spreadsheet work; sales waited days while prices had to stay auditable.",
-      "built": "FastAPI and React platform with supplier plug-ins, deterministic pricing tiers, PDF ingestion, and CRM handoff."
+      "built": "FastAPI and React platform with supplier plug-ins, deterministic pricing tiers, PDF ingestion, and CRM handoff.",
+      "impact": [
+        "124k+ deterministic price tiers in the catalog",
+        "Supplier plug-ins and PDF ingestion cut quote turnaround",
+        "Auditable pricing path from supplier data to CRM"
+      ],
+      "tech": ["FastAPI", "React", "Python", "PostgreSQL", "PDF ingestion"]
     },
     "alygen_crm_b2b": {
       "title": "Alygen CRM · B2B Outreach Stack",
       "problem": "Freelance prospecting meant hours of manual site audits and slow, generic proposals per lead.",
-      "built": "Open-source CRM with automated technical audits, ML lead scoring, agent-assisted copy, and email and messaging dispatch."
+      "built": "Open-source CRM with automated technical audits, ML lead scoring, agent-assisted copy, and email and messaging dispatch.",
+      "impact": [
+        "6,000+ B2B companies audited with automated technical scoring",
+        "Agent-assisted proposals and outreach from structured lead data",
+        "Open-source stack for portfolio and live client work"
+      ],
+      "tech": ["Python", "FastAPI", "React", "ML scoring", "Playwright"]
     },
     "container_risk_radar_habitarmos": {
       "title": "Container Risk Radar · Fleet Observability",
       "problem": "Websites, VPS hosts, containers, and automations were monitored in separate tools with no shared risk picture.",
-      "built": "Docker Compose observability stack with Prometheus, Loki, Grafana, scoring engine, and a Next.js control dashboard."
+      "built": "Docker Compose observability stack with Prometheus, Loki, Grafana, scoring engine, and a Next.js control dashboard.",
+      "impact": [
+        "Unified risk score across n8n, VPS, cPanel, and container workloads",
+        "Telegram/Slack alerting when sync or infra signals degrade",
+        "Next.js dashboard with live SSE updates for triage"
+      ],
+      "tech": ["Prometheus", "Grafana", "Loki", "Next.js", "Docker Compose", "Python"]
+    },
+    "lfg_discord_bot": {
+      "title": "LFG Valorant · Discord Community Platform",
+      "problem": "A ~13k-member Valorant guild relied on manual chat codes; matchmaking did not scale and moderators lacked structure.",
+      "built": "Open-source bot + FastAPI API + React OAuth PWA with Postgres lobbies, gamification, and guild analytics on Hetzner.",
+      "impact": [
+        "4,186 LFG requests and 4,186 weekly active users in 7 days (Oct 2026)",
+        "~1k messages/day and ~+35% activity in the first weekend after NPVP migration",
+        "380k+ lifetime structured LFG requests tracked (legacy + bot)"
+      ],
+      "tech": ["Python", "FastAPI", "PostgreSQL", "React", "Docker", "Discord OAuth"]
     }
   },
   "other_work": [
     {
-      "id": "zohosync",
-      "title": "ZohoSync · PHC to Zoho Bigin",
-      "summary": "Commercial sync for 500+ distributors: accounts, contacts, pipeline, and rep KPIs from ERP truth."
+      "id": "group_web",
+      "title": "HABITARMOS GROUP · brand websites",
+      "summary": "habitarmos.com & estoresrainha.com (custom HTML/CSS corporate); arkitek.pt & skuba.com.pt (WordPress catalogs, 15k+ combined monthly visits)."
     },
     {
-      "id": "brand_sites",
-      "title": "Group brand websites",
-      "summary": "WordPress across four public brands including habitarmos.com, estoresrainha.com, arkitek.pt, and skuba.com.pt."
+      "id": "client_web",
+      "title": "Freelance client web",
+      "summary": "categoryweek.com, revigomes.pt/.com, and other delivered properties—secondary to group and ALYGEN flagship work."
     },
     {
       "id": "rute_carreira",
       "title": "Rute Carreira · coaching & wellness",
-      "summary": "End-to-end WordPress and WooCommerce stack, SEO, and ticketing sites that support daily leads and product sales."
+      "summary": "Three WordPress/WooCommerce properties (hub, shop, leads): ~2 leads/week → ~5–10 leads/day on the program site; luxury event ticketing ~3 years in production."
     },
     {
       "id": "jobfinder",
@@ -79,11 +140,6 @@
       "title": "Praxis · agent coding harness",
       "summary": "R&D sandbox with Docker evaluation gates, human approval UI, and vector memory for safer coding agents.",
       "link": "https://github.com/alyekseyenko/praxis-alygen"
-    },
-    {
-      "id": "lfgbot",
-      "title": "LFG Valorant · Discord community",
-      "summary": "Discord bot and web app for matchmaking, moderation, and guild analytics for a gaming community."
     }
   ],
   "certification_allowlist": [
