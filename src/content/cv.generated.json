@@ -13,24 +13,24 @@
   "summary": "Digital transformation and AI automation lead for HABITARMOS / ESTORESRAINHA GROUP (four brands): built HABITAI cockpit unifying ERP, CRM, logistics, inventory AI, marketing ops, and field apps. Architected PHC cloud read-replica (5M+ rows, dbt marts, Metabase BI for leadership) and 80+ production workflows (~22.5k n8n runs/7d; n8n, Zoho Flow, Make.com). Innovation Hub: 55 projects, ~465h/month saved.",
   "highlights": [
     {
-      "label": "Production workflows",
-      "value": "80+"
+      "label": "Workflow runs in 7 days (n8n)",
+      "value": "~22.5k"
     },
     {
-      "label": "Hours saved monthly",
-      "value": "~465h"
+      "label": "Governed ERP rows replicated",
+      "value": "5.4M+"
     },
     {
-      "label": "Daily field app users",
-      "value": "40"
+      "label": "Deterministic quote price tiers",
+      "value": "124k+"
     },
     {
-      "label": "Distributors synced",
-      "value": "500+"
+      "label": "Customers on CRM & field stack",
+      "value": "15k+"
     },
     {
-      "label": "ERP rows in cloud replica",
-      "value": "5M+"
+      "label": "B2B companies audited (ALYGEN)",
+      "value": "6,000+"
     }
   ],
   "experience": [
@@ -76,7 +76,7 @@
       "bullets": [
         "Run ALYGEN, the trading name for my freelance B2B services (web, automation, and digital operations for SMBs): closed €20k+ in client work after prospecting 6,000+ companies with automated audits.",
         "Built Alygen CRM, my own sales tool (https://github.com/alyekseyenko/alygen), scaling outreach from ~4 to ~200 leads/day with sub-3-minute proposals via Chromium audits, ML lead scoring, and multi-agent Email, WhatsApp, and Telegram dispatch (React, Node.js, FastAPI, PostgreSQL/pgvector).",
-        "Long-term client Rute Carreira (coaching & wellness): built rutecarreira.com, asuaessencia.com, and oseuplanob.com from zero, grew oseuplanob.com leads from ~2/week to ~5 · 10/day, and have run the e-commerce and luxury event ticketing in production for 3+ years."
+        "Long-term client Rute Carreira (coaching & wellness): built rutecarreira.com, asuaessencia.com, and oseuplanob.com from zero, grew oseuplanob.com leads from ~2/week to ~5-10/day, and have run the e-commerce and luxury event ticketing in production for 3+ years."
       ]
     }
   ],
@@ -105,7 +105,7 @@
     {
       "id": "phc_cloud_data_platform_elt",
       "title": "PHC ERP · Cloud Read Replica",
-      "period": "2025 · 2026",
+      "period": "2025-2026",
       "company": "HABITARMOS / ESTORESRAINHA GROUP",
       "problem": "CRM and automations could not safely use live ERP data without exposing on-prem SQL or copying numbers by hand.",
       "built": "Hybrid sync to PostgreSQL on a VPS, dbt marts, role-scoped access, and executive dashboards for two PHC tenants.",
@@ -197,7 +197,7 @@
       "built": "Docker Compose observability stack with Prometheus, Loki, Grafana, scoring engine, and a Next.js control dashboard.",
       "impact": [
         "One fixed control surface for websites, cloud, containers, automations, hosting, and quotas · instead of context-switching across disconnected UIs",
-        "Explainable per-container risk_score (0.0 · 1.0) to prioritize issues before they cause customer or revenue impact",
+        "Explainable per-container risk_score (0.0-1.0) to prioritize issues before they cause customer or revenue impact",
         "Slack and Telegram notifications keep a live operational picture regardless of location"
       ],
       "tech": [
@@ -305,14 +305,14 @@
     {
       "degree": "BA in Graphic and Multimedia Design",
       "institution": "ESAD.CR",
-      "details": "2017 · 2020",
+      "details": "2017-2020",
       "honors": "Best student / top graduate (class recognition)",
       "supplementary": "Invited 2020 to guest-teach Arduino and programming after graduation"
     },
     {
       "degree": "BSc studies in Computer Engineering",
       "institution": "ESTG Leiria",
-      "details": "2014 · 2017"
+      "details": "2014-2017"
     }
   ],
   "certifications": [
