@@ -31,6 +31,10 @@
     {
       "label": "B2B companies audited (ALYGEN)",
       "value": "6,000+"
+    },
+    {
+      "label": "Valorant LFG community (Discord)",
+      "value": "~13k"
     }
   ],
   "experience": [
@@ -43,7 +47,7 @@
         "Architected a production PHC ERP cloud read replica (5M+ rows, ~8.9 GB PostgreSQL, 24+22 tables, 15-min sync, 99.1% reliability) with dbt marts, Metabase executive dashboards (Docker, SSH tunnel to VPS), and MCP metric tools so leadership and CRM use governed data, not LAN SQL.",
         "Built HABITAI operations cockpit across 4 brands: MCP agent orchestration, multimodal RAG (Docling, ColPali, Qdrant), predictive inventory, Distribution 360, and executive KPI dashboards.",
         "Scaled 80+ production workflows (n8n, Zoho Flow, Make.com) to ~22.5k n8n runs/7d and ~4k Zoho Flow runs/month for ERP-CRM ingestion, alerts, and Discord observability.",
-        "Coached ~40 staff and led UX/UI, graphic design, and 2 junior developers while translating ERP and CRM data into KPIs for owners and a 500+ distributor network."
+        "Coached ~40 staff and led UX/UI, multimedia design, and 2 junior developers while translating ERP and CRM data into KPIs for owners and a 500+ distributor network."
       ]
     },
     {
@@ -55,7 +59,8 @@
         "Built ZohoSync PHC SQL Server to Zoho Bigin (EU) for 500+ distributors: 893 accounts, 2,405 contacts, and ~2k pipeline records so reps track targets, gap-to-goal, and stalled deals.",
         "Led ESTORESRAINHA digital turnaround for 15k+ customers (~11.4k mapped from the cloud replica into Twenty CRM): replaced paper workflows with automated scheduling, catalog, service tracking, and agent-assisted CRM ingestion.",
         "Delivered app-tecnicos (services-blinds PWA) in production on Hetzner for 40 daily users across technicians, warehouse, dispatch, and office: Next.js 16, offline-first Dexie queue, Google Maps routing, GraphQL Twenty CRM sync, transactional outbox, and GCP Speech-to-Text visit summaries.",
-        "Engineered orcamentos-ia quoting platform (FastAPI + React): 124k+ deterministic pricing tiers across 20+ supplier price-list plug-ins with Docling/Celery PDF ingestion, cutting multi-brand quote generation from days to minutes with zero price hallucination."
+        "Engineered orcamentos-ia quoting platform (FastAPI + React): 124k+ deterministic pricing tiers across 20+ supplier price-list plug-ins with Docling/Celery PDF ingestion, cutting multi-brand quote generation from days to minutes with zero price hallucination.",
+        "Shipped the PHC ERP cloud read replica (Oct 2026): wave-4 allowlisted PHC tables, dbt marts, and PII-scoped agent roles decoupling CRM and workflows from on-prem SQL Server."
       ]
     },
     {
@@ -64,7 +69,7 @@
       "role": "Software and Automation Developer",
       "period": "Jul 2020 · Dec 2023",
       "bullets": [
-        "Built the group's web footprint from zero across 4 brands: corporate sites habitarmos.com & estoresrainha.com (WordPress) and catalog properties arkitek.pt & skuba.com.pt (WordPress) · scaling ARKITEK/SKUBA to 15k+ combined monthly visits through technical SEO and catalog storytelling.",
+        "Built the group's web footprint from zero across 4 brands: corporate sites habitarmos.com and estoresrainha.com (custom HTML/CSS) and high-traffic catalog properties arkitek.pt and skuba.com.pt (WordPress), scaling ARKITEK/SKUBA to 15k+ combined monthly visits through technical SEO and catalog storytelling.",
         "Automated product visual generation with custom Stable Diffusion SDXL LoRAs via ComfyUI and built multimodal computer-vision pipelines for SKU matching and catalog synchronization."
       ]
     },
@@ -89,17 +94,17 @@
       "problem": "Operations data lived in ERP, CRM, logistics, and spreadsheets with no single place for owners or field teams to act.",
       "built": "Operations cockpit tying PHC data, CRM sync, automation, inventory signals, and agent-assisted Q&A on governed metrics.",
       "impact": [
-        "Single source of truth across warehouses, distributors, finance, and field ops",
-        "ZohoSync + commercial dashboards: 500+ distributors, objectives vs invoicing",
-        "MCP + 80+ production workflows (~22.5k n8n runs in a recent 7-day sample)"
+        "80+ production workflows (~22.5k n8n runs in a recent 7-day sample)",
+        "MCP read-only ERP Q&A with per-call audit logging",
+        "Single nervous system for warehouses, distributors, finance, and field ops"
       ],
       "tech": [
-        "Next.js",
-        "React",
-        "TypeScript",
         "FastAPI",
-        "Python",
-        "modular monolith → microservices-ready"
+        "React",
+        "n8n",
+        "PostgreSQL",
+        "MCP",
+        "LangGraph"
       ]
     },
     {
@@ -110,17 +115,38 @@
       "problem": "CRM and automations could not safely use live ERP data without exposing on-prem SQL or copying numbers by hand.",
       "built": "Hybrid sync to PostgreSQL on a VPS, dbt marts, role-scoped access, and executive dashboards for two PHC tenants.",
       "impact": [
-        "Two companies on one governed Postgres platform on the VPS (habitarmos_* / estores_* schemas).",
-        "5M+ replicated rows (Oct 2026, ~5.4M measured): ~8.9 GB Postgres; HabitArmos ~3.01M (24 tables) and Estores ~2.35M (22 tables), wave 4 on both tenants.",
-        "4,720 + 11,497 customers (cl); sales-objectives snapshot jaj_objvendas 450 rows."
+        "5.4M+ governed rows across HabitArmos and Estores tenants",
+        "15-minute incremental sync; ~11k Estores customers mapped to Twenty CRM",
+        "Read-only MCP metric catalog with regression-tested definitions"
       ],
       "tech": [
         "Python",
-        "T-SQL",
-        "multi-tenant habitarmos_* / estores_*",
-        "watermark incremental sync",
-        "batched reads (~400-row batches)",
-        "read-only SQL users"
+        "PostgreSQL",
+        "dbt",
+        "SQL Server",
+        "Metabase",
+        "Docker"
+      ]
+    },
+    {
+      "id": "zohosync_habitarmos",
+      "title": "ZohoSync · PHC ↔ Zoho Commercial Intelligence",
+      "period": "2023 · Present",
+      "company": "HABITARMOS / ESTORESRAINHA GROUP",
+      "problem": "Sales leadership relied on disconnected spreadsheets instead of live ERP-backed objectives and pipeline health.",
+      "built": "FastAPI/Redis incremental bridge from PHC to Zoho Bigin with rep KPIs, distributor analytics, and HABITAI consult views.",
+      "impact": [
+        "893 Bigin accounts / 2,405 contacts / ~2k pipeline records (Oct 2026)",
+        "500+ distributor network on PHC-backed gap-to-target coaching",
+        "Feeds Gestão de Comerciais and MCP ERP Q&A"
+      ],
+      "tech": [
+        "FastAPI",
+        "Redis",
+        "Zoho Bigin",
+        "PHC ERP",
+        "Next.js",
+        "Python"
       ]
     },
     {
@@ -132,17 +158,17 @@
       "problem": "Field service ran on paper: slow customer updates, lost technician time, and no shared schedule when clients called.",
       "built": "Production PWA with offline queue, maps and routing, warehouse module, and Twenty CRM sync on Hetzner.",
       "impact": [
-        "In production (not a pilot): 40 people use the app across field, warehouse, dispatch, and office",
-        "Single operational picture: who is scheduled, where technicians are, visit status, and product/service state when customers call",
-        "Offline-first PWA so field work continues without mobile signal; measurements and job data replay safely to CRM"
+        "~40 technicians use the app daily in production",
+        "Offline-first queue for visits, photos, and status updates",
+        "Twenty CRM sync replaces manual dispatch spreadsheets"
       ],
       "tech": [
-        "Next.js 16",
-        "React 19",
-        "TypeScript",
-        "Tailwind CSS 4",
+        "React",
         "PWA",
-        "Dexie IndexedDB"
+        "Twenty CRM",
+        "GraphQL",
+        "Hetzner",
+        "Docker"
       ]
     },
     {
@@ -153,17 +179,16 @@
       "problem": "Quotes depended on manual PDF and spreadsheet work; sales waited days while prices had to stay auditable.",
       "built": "FastAPI and React platform with supplier plug-ins, deterministic pricing tiers, PDF ingestion, and CRM handoff.",
       "impact": [
-        "Quote cycles collapsed from days to minutes with auditable unit prices frozen at proposal time",
-        "20+ supplier catalogs ingested via PDF/Excel pipeline with human review and versioned price lists",
-        "AI assistant composes budgets using DB lookups only · margins, VAT, installation lines recalc live"
+        "124k+ deterministic price tiers in the catalog",
+        "Supplier plug-ins and PDF ingestion cut quote turnaround",
+        "Auditable pricing path from supplier data to CRM"
       ],
       "tech": [
-        "React 19",
-        "TypeScript",
-        "Vite",
-        "Tailwind CSS 4",
-        "PWA",
-        "FastAPI"
+        "FastAPI",
+        "React",
+        "Python",
+        "PostgreSQL",
+        "PDF ingestion"
       ]
     },
     {
@@ -175,17 +200,16 @@
       "problem": "Freelance prospecting meant hours of manual site audits and slow, generic proposals per lead.",
       "built": "Open-source CRM with automated technical audits, ML lead scoring, agent-assisted copy, and email and messaging dispatch.",
       "impact": [
-        "Outreach scale: ~4 → ~200 leads/day; €12k pipeline closed in first 7 days after automation",
-        "Proposal turnaround under 3 minutes with localized PT-PT copy",
-        "65+ automated tests, local-first resilience (Postgres ↔ SQLite failover)"
+        "6,000+ B2B companies audited with automated technical scoring",
+        "Agent-assisted proposals and outreach from structured lead data",
+        "Open-source stack for portfolio and live client work"
       ],
       "tech": [
-        "React 18",
-        "Vite",
-        "Kanban",
-        "Territory map",
-        "3D Web DNA",
-        "@xyflow/react automations"
+        "Python",
+        "FastAPI",
+        "React",
+        "ML scoring",
+        "Playwright"
       ]
     },
     {
@@ -196,35 +220,57 @@
       "problem": "Websites, VPS hosts, containers, and automations were monitored in separate tools with no shared risk picture.",
       "built": "Docker Compose observability stack with Prometheus, Loki, Grafana, scoring engine, and a Next.js control dashboard.",
       "impact": [
-        "One fixed control surface for websites, cloud, containers, automations, hosting, and quotas · instead of context-switching across disconnected UIs",
-        "Explainable per-container risk_score (0.0-1.0) to prioritize issues before they cause customer or revenue impact",
-        "Slack and Telegram notifications keep a live operational picture regardless of location"
+        "Unified risk score across n8n, VPS, cPanel, and container workloads",
+        "Telegram/Slack alerting when sync or infra signals degrade",
+        "Next.js dashboard with live SSE updates for triage"
       ],
       "tech": [
-        "Docker Compose",
-        "Python 3",
-        "Node.js",
         "Prometheus",
-        "PromQL",
-        "Loki"
+        "Grafana",
+        "Loki",
+        "Next.js",
+        "Docker Compose",
+        "Python"
+      ]
+    },
+    {
+      "id": "lfg_discord_bot",
+      "title": "LFG Valorant · Discord Community Platform",
+      "period": "Oct 2025 · Present",
+      "company": "Independent / Portfolio (community ops)",
+      "link": "https://github.com/alyekseyenko/lfgbot",
+      "problem": "A ~13k-member Valorant guild relied on manual chat codes; matchmaking did not scale and moderators lacked structure.",
+      "built": "Open-source bot + FastAPI API + React OAuth PWA with Postgres lobbies, gamification, and guild analytics on Hetzner.",
+      "impact": [
+        "4,186 LFG requests and 4,186 weekly active users in 7 days (Oct 2026)",
+        "~1k messages/day and ~+35% activity in the first weekend after NPVP migration",
+        "380k+ lifetime structured LFG requests tracked (legacy + bot)"
+      ],
+      "tech": [
+        "Python",
+        "FastAPI",
+        "PostgreSQL",
+        "React",
+        "Docker",
+        "Discord OAuth"
       ]
     }
   ],
   "other_work": [
     {
-      "id": "zohosync",
-      "title": "ZohoSync · PHC to Zoho Bigin",
-      "summary": "Commercial sync for 500+ distributors: accounts, contacts, pipeline, and rep KPIs from ERP truth."
+      "id": "group_web",
+      "title": "HABITARMOS GROUP · brand websites",
+      "summary": "habitarmos.com & estoresrainha.com (custom HTML/CSS corporate); arkitek.pt & skuba.com.pt (WordPress catalogs, 15k+ combined monthly visits)."
     },
     {
-      "id": "brand_sites",
-      "title": "Group brand websites",
-      "summary": "WordPress across four public brands including habitarmos.com, estoresrainha.com, arkitek.pt, and skuba.com.pt."
+      "id": "client_web",
+      "title": "Freelance client web",
+      "summary": "categoryweek.com, revigomes.pt/.com, and other delivered properties—secondary to group and ALYGEN flagship work."
     },
     {
       "id": "rute_carreira",
       "title": "Rute Carreira · coaching & wellness",
-      "summary": "End-to-end WordPress and WooCommerce stack, SEO, and ticketing sites that support daily leads and product sales."
+      "summary": "Three WordPress/WooCommerce properties (hub, shop, leads): ~2 leads/week → ~5–10 leads/day on the program site; luxury event ticketing ~3 years in production."
     },
     {
       "id": "jobfinder",
@@ -236,11 +282,6 @@
       "title": "Praxis · agent coding harness",
       "summary": "R&D sandbox with Docker evaluation gates, human approval UI, and vector memory for safer coding agents.",
       "link": "https://github.com/alyekseyenko/praxis-alygen"
-    },
-    {
-      "id": "lfgbot",
-      "title": "LFG Valorant · Discord community",
-      "summary": "Discord bot and web app for matchmaking, moderation, and guild analytics for a gaming community."
     }
   ],
   "skill_groups": {
@@ -303,7 +344,7 @@
   ],
   "education": [
     {
-      "degree": "BA in Graphic and Multimedia Design",
+      "degree": "BA in Multimedia Design",
       "institution": "ESAD.CR",
       "details": "2017-2020",
       "honors": "Best student / top graduate (class recognition)",
