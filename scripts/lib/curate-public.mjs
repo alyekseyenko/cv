@@ -72,6 +72,7 @@ const COPY_FIXES = [
 export function normalizeCopy(text) {
   if (typeof text !== "string") return text;
   let s = text
+    .replace(/(\d)\s*[\u2013\u2014]\s*(\d)/g, "$1-$2")
     .replace(/\u2014|\u2013/g, " · ")
     .replace(/\)\s*—\s*/g, "), ")
     .replace(/\s*—\s*/g, " · ");

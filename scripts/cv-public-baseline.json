@@ -7,11 +7,11 @@
     "photo": "/profile.jpeg"
   },
   "highlights": [
-    { "label": "Production workflows", "value": "80+" },
-    { "label": "Hours saved monthly", "value": "~465h" },
-    { "label": "Daily field app users", "value": "40" },
-    { "label": "Distributors synced", "value": "500+" },
-    { "label": "ERP rows in cloud replica", "value": "5M+" }
+    { "label": "Workflow runs in 7 days (n8n)", "value": "~22.5k" },
+    { "label": "Governed ERP rows replicated", "value": "5.4M+" },
+    { "label": "Deterministic quote price tiers", "value": "124k+" },
+    { "label": "Customers on CRM & field stack", "value": "15k+" },
+    { "label": "B2B companies audited (ALYGEN)", "value": "6,000+" }
   ],
   "featured_project_ids": [
     "habitai_unified_platform",
