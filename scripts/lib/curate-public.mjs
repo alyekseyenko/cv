@@ -184,7 +184,12 @@ function mapFeaturedProject(rawProject, overlay) {
     title: overlay.title || normalizeCopy(rawProject.title),
     period: normalizeCopy(rawProject.period),
     company: normalizeCopy(rawProject.company),
-    link: rawProject.link || undefined,
+    link:
+      rawProject.link ||
+      (rawProject.repository
+        ? `https://github.com/alyekseyenko/${String(rawProject.repository).replace(/\.git$/, "")}`
+        : undefined) ||
+      undefined,
     problem: overlay.problem || normalizeCopy(rawProject.context?.split(/(?<=[.!?])\s+/)[0] || ""),
     built:
       overlay.built ||
@@ -192,6 +197,33 @@ function mapFeaturedProject(rawProject, overlay) {
     impact,
     tech,
   };
+}
+
+function buildPublicProjectList(raw, baseline, projectsById) {
+  const order = baseline.featured_project_ids ?? [];
+  const exclude = new Set(baseline.exclude_project_ids ?? []);
+  const includeAll = baseline.include_all_master_projects !== false;
+
+  const orderedIds = [];
+  const seen = new Set();
+
+  for (const id of order) {
+    if (exclude.has(id) || !projectsById[id]) continue;
+    orderedIds.push(id);
+    seen.add(id);
+  }
+
+  if (includeAll) {
+    for (const p of raw.projects ?? []) {
+      if (!p?.id || exclude.has(p.id) || seen.has(p.id)) continue;
+      orderedIds.push(p.id);
+      seen.add(p.id);
+    }
+  }
+
+  return orderedIds.map((id) =>
+    mapFeaturedProject(projectsById[id], baseline.project_overlays[id] ?? {}),
+  );
 }
 
 export function buildPublicCv(raw, baselinePath, options = {}) {
@@ -204,13 +236,7 @@ export function buildPublicCv(raw, baselinePath, options = {}) {
   const tagline = syncTaglineFromRaw(raw, baseline.personal_info.tagline);
 
   const projectsById = Object.fromEntries((raw.projects ?? []).map((p) => [p.id, p]));
-  const featured = baseline.featured_project_ids
-    .map((id) => {
-      const rawProject = projectsById[id];
-      if (!rawProject) return null;
-      return mapFeaturedProject(rawProject, baseline.project_overlays[id] ?? {});
-    })
-    .filter(Boolean);
+  const featured = buildPublicProjectList(raw, baseline, projectsById);
 
   const projectImpactText = featured.flatMap((p) => p.impact ?? []).join(" ");
   const summary = buildRecruiterSummary(raw, highlights, projectImpactText);

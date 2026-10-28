@@ -15,15 +15,24 @@
     { "label": "Automation portfolio hours saved", "value": "~465/mo" },
     { "label": "Freelance B2B revenue closed (ALYGEN)", "value": "€20k+" }
   ],
+  "include_all_master_projects": true,
+  "exclude_project_ids": [],
   "featured_project_ids": [
     "habitai_unified_platform",
     "phc_cloud_data_platform_elt",
     "zohosync_habitarmos",
     "blinds_field_ops_pwa",
     "orcamentos_ia_platform",
+    "habitarmos_innovation_hub",
     "alygen_crm_b2b",
     "container_risk_radar_habitarmos",
-    "lfg_discord_bot"
+    "lfg_discord_bot",
+    "habitarmos_multibrand_websites",
+    "rute_carreira_digital_platform",
+    "linkedin_jobfinder_scout",
+    "praxis_alygen_harness",
+    "sentinel_v2_portfolio",
+    "optional_client_websites"
   ],
   "project_overlays": {
     "habitai_unified_platform": {
@@ -120,34 +129,7 @@
       "Built Alygen CRM (open source): automated technical audits, ML lead scoring, and agent-assisted outreach across email and messaging."
     ]
   },
-  "other_work": [
-    {
-      "id": "group_web",
-      "title": "HABITARMOS GROUP · brand websites",
-      "summary": "habitarmos.com & estoresrainha.com (custom HTML/CSS corporate); arkitek.pt & skuba.com.pt (WordPress catalogs, 15k+ combined monthly visits)."
-    },
-    {
-      "id": "client_web",
-      "title": "Freelance client web",
-      "summary": "categoryweek.com, revigomes.pt/.com, and other delivered properties—secondary to group and ALYGEN flagship work."
-    },
-    {
-      "id": "rute_carreira",
-      "title": "Rute Carreira · coaching & wellness",
-      "summary": "Three WordPress/WooCommerce properties (hub, shop, leads): ~2 leads/week → ~5–10 leads/day on the program site; luxury event ticketing ~3 years in production."
-    },
-    {
-      "id": "jobfinder",
-      "title": "LinkedIn Jobfinder Scout",
-      "summary": "Portfolio agent system for job matching, ATS PDF export, and structured CV ingestion (not affiliated with LinkedIn)."
-    },
-    {
-      "id": "praxis",
-      "title": "Praxis · agent coding harness",
-      "summary": "R&D sandbox with Docker evaluation gates, human approval UI, and vector memory for safer coding agents.",
-      "link": "https://github.com/alyekseyenko/praxis-alygen"
-    }
-  ],
+  "other_work": [],
   "certification_allowlist": [
     "Microsoft Generative AI Engineering",
     "Machine Learning",

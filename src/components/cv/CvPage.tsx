@@ -40,7 +40,7 @@ export function CvPage() {
             <Timeline items={cv.experience} />
           </Section>
 
-          <Section id="projects" title="Selected projects">
+          <Section id="projects" title="Projects">
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:items-start">
               {cv.projects.map((project) => (
                 <ProjectCard key={project.id} project={project} />
@@ -48,9 +48,11 @@ export function CvPage() {
             </div>
           </Section>
 
-          <Section id="other-work" title="Other work">
-            <WorkList items={cv.other_work} />
-          </Section>
+          {cv.other_work.length > 0 ? (
+            <Section id="other-work" title="Other work">
+              <WorkList items={cv.other_work} />
+            </Section>
+          ) : null}
 
           <Section id="skills" title="Skills">
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
