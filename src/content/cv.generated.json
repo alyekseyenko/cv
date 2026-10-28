@@ -48,7 +48,7 @@
       "role": "Digital Transformation Lead & AI/Automation Engineer",
       "period": "Jan 2026 · Present",
       "bullets": [
-        "Built HABITAI operations cockpit across 4 brands: MCP agent orchestration, multimodal RAG (Docling, ColPali, Qdrant), predictive inventory, Distribution 360, and executive KPI dashboards."
+        "Architected a production PHC ERP cloud read replica (5M+ rows, ~8.9 GB PostgreSQL, 24+22 tables, 15-min sync, 99.1% reliability) with dbt marts, Metabase executive dashboards (Docker, SSH tunnel to VPS), and MCP metric tools so leadership and CRM use governed data, not LAN SQL."
       ]
     },
     {
@@ -106,6 +106,7 @@
       "title": "PHC ERP · Cloud Read Replica",
       "period": "2025-2026",
       "company": "HABITARMOS / ESTORESRAINHA GROUP",
+      "link": "https://github.com/alyekseyenko/habitarmos-phc-replica",
       "problem": "CRM and automations could not safely use live ERP data without exposing on-prem SQL or copying numbers by hand.",
       "built": "Hybrid sync to PostgreSQL on a VPS, dbt marts, role-scoped access, and executive dashboards for two PHC tenants.",
       "impact": [
@@ -186,6 +187,27 @@
       ]
     },
     {
+      "id": "habitarmos_innovation_hub",
+      "title": "Innovation Hub · Digital Transformation Control Tower",
+      "period": "2024 · Present",
+      "company": "HABITARMOS / ESTORESRAINHA GROUP",
+      "problem": "Central governance layer for HABITARMOS GROUP multi-brand transformation (HABITARMOS, ESTORESRAINHA, ARKITEK, SKUBA).",
+      "built": "Owner & lead · portfolio PMO, FinOps, architecture board, marketing squad (UX/UI, multimedia design, 2 junior devs), and primary implementer for top-priority initiatives",
+      "impact": [
+        "55 projects in managed pipeline; ~465 hours saved per month across completed automations",
+        "~210 €/h efficiency metric (annual value per dev hour) · proves lean build vs. opportunity cost of backlog",
+        "Aligns commercial, warehouse, design, accounting, and dev departments on one innovation roadmap"
+      ],
+      "tech": [
+        "department tagging",
+        "n8n",
+        "Twenty CRM",
+        "Zoho Bigin",
+        "PHC ERP bridges",
+        "Next.js apps"
+      ]
+    },
+    {
       "id": "alygen_crm_b2b",
       "title": "Alygen CRM · B2B Outreach Stack",
       "period": "Jan 2025 · Present",
@@ -248,36 +270,120 @@
         "Docker",
         "Discord OAuth"
       ]
+    },
+    {
+      "id": "habitarmos_multibrand_websites",
+      "title": "HABITARMOS GROUP · Corporate & Brand Websites",
+      "period": "2020 · Present",
+      "company": "HABITARMOS / ESTORESRAINHA GROUP",
+      "problem": "Early tenure: brands had little or no usable web presence.",
+      "built": "Builder & maintainer · UX with marketing/design squad, SEO, hosting, incremental updates",
+      "impact": [
+        "ARKITEK + SKUBA brand sites: 15k+ monthly visits today (from near-zero when I started)",
+        "Four-property web footprint supporting distributors and end customers across the group"
+      ],
+      "tech": []
+    },
+    {
+      "id": "rute_carreira_digital_platform",
+      "title": "Rute Carreira · Coaching & Wellness Digital Transformation",
+      "period": "2021 · Present",
+      "company": "ALYGEN (freelance B2B practice) · client Rute Carreira",
+      "problem": "Long-term freelance client (Rute C.): started with no website at all.",
+      "built": "Solo transformation partner · strategy, WordPress/WooCommerce, custom plugins, SEO, ticketing, hosting, and continuous optimization",
+      "impact": [
+        "Client went from zero web to three revenue-supporting properties",
+        "oseuplanob.com: ~2 leads/week → ~5-10 leads/day",
+        "Product revenue via asuaessencia.com; recurring luxury event ticket sales ~3 years"
+      ],
+      "tech": [
+        "WordPress",
+        "custom PHP plugins",
+        "WooCommerce",
+        "Technical SEO",
+        "conversion-focused IA",
+        "lead capture flows"
+      ]
+    },
+    {
+      "id": "linkedin_jobfinder_scout",
+      "title": "LinkedIn Jobfinder Scout · Agentic Career Intelligence (Portfolio)",
+      "period": "2025 · Present",
+      "company": "Independent / Portfolio (ALYGEN ecosystem)",
+      "link": "https://github.com/alyekseyenko/linkedin-jobfinder-scout",
+      "problem": "Open-source R&D showcase (this repo): dual-memory neural architecture (candidate CV vs.",
+      "built": "Solo architect & engineer · full stack, agents, observability (OTLP/Phoenix), Docker microservices",
+      "impact": [
+        "Demonstrates end-to-end agentic system design for recruiters and technical interviews",
+        "Structured CV/KB ingestion powers consistent ATS and match scoring from real profile data",
+        "Demo mode runs full UI without API keys for portfolio walkthroughs"
+      ],
+      "tech": [
+        "React 19",
+        "TypeScript",
+        "Three.js",
+        "Vite",
+        "Pipeline Kanban",
+        "MyCV / ATS export"
+      ]
+    },
+    {
+      "id": "praxis_alygen_harness",
+      "title": "Praxis · Evaluation-First Autonomous Coding Harness (Alpha Test)",
+      "period": "2025 · Present",
+      "company": "ALYGEN (R&D)",
+      "link": "https://github.com/alyekseyenko/praxis-alygen",
+      "problem": "ALYGEN R&D experiment (https://github.com/alyekseyenko/praxis-alygen): I tested whether coding agents can run safely in disposable Docker sandboxes with deterministic pytest/compiler gates, Langfuse/OpenTelemetry observability, human git-diff approval in Mission Control (React 19), and pgvector instincts from approved changes.",
+      "built": "Solo builder · harness design, sandbox security model, MCP/Antigravity integration",
+      "impact": [
+        "Validated pattern: agents do not self-grade · only objective tests unlock progress",
+        "Reusable Mission Control UX for approve/reject with feedback",
+        "Instinct memory reduces repeated architectural mistakes across tasks"
+      ],
+      "tech": [
+        "Docker sandboxes",
+        "deterministic evaluation gates",
+        "HITL sign-off",
+        "Context guard / tool compactor",
+        "FastAPI",
+        "React 19"
+      ]
+    },
+    {
+      "id": "sentinel_v2_portfolio",
+      "title": "SENTINEL v2.3 · Multi-Agent Supply Chain Defense (Portfolio Case Study)",
+      "period": "May 2025 · Present",
+      "company": "ALYGEN (Portfolio / R&D)",
+      "link": "https://github.com/alyekseyenko",
+      "problem": "ALYGEN portfolio case study (May 2025): I designed and documented Sentinel v2.3 · an antifragile AI swarm for high-risk logistics and crisis-style orchestration.",
+      "built": "Solo architect & author · systems design, agent governance model, portfolio write-up",
+      "impact": [
+        "Published end-to-end case study with architecture diagrams (1M-user scale target, incident response flows, crypto/data lineage)",
+        "Documented governance stack preventing unconstrained agentic changes"
+      ],
+      "tech": [
+        "LangGraph",
+        "Spec-Driven Development (.specify)",
+        "Utility-per-token FinOps",
+        "Semantic cache",
+        "Local triage (Ollama)",
+        "Python FastAPI"
+      ]
+    },
+    {
+      "id": "optional_client_websites",
+      "title": "Additional client websites (supplementary)",
+      "period": "Freelance",
+      "company": "Various clients",
+      "problem": "Optional portfolio note: delivered web properties for other clients · categoryweek.com (project site) and revigomes.pt.",
+      "built": "Web delivery (as needed)",
+      "impact": [
+        "Published client-facing sites"
+      ],
+      "tech": []
     }
   ],
-  "other_work": [
-    {
-      "id": "group_web",
-      "title": "HABITARMOS GROUP · brand websites",
-      "summary": "habitarmos.com & estoresrainha.com (custom HTML/CSS corporate); arkitek.pt & skuba.com.pt (WordPress catalogs, 15k+ combined monthly visits)."
-    },
-    {
-      "id": "client_web",
-      "title": "Freelance client web",
-      "summary": "categoryweek.com, revigomes.pt/.com, and other delivered properties—secondary to group and ALYGEN flagship work."
-    },
-    {
-      "id": "rute_carreira",
-      "title": "Rute Carreira · coaching & wellness",
-      "summary": "Three WordPress/WooCommerce properties (hub, shop, leads): ~2 leads/week → ~5–10 leads/day on the program site; luxury event ticketing ~3 years in production."
-    },
-    {
-      "id": "jobfinder",
-      "title": "LinkedIn Jobfinder Scout",
-      "summary": "Portfolio agent system for job matching, ATS PDF export, and structured CV ingestion (not affiliated with LinkedIn)."
-    },
-    {
-      "id": "praxis",
-      "title": "Praxis · agent coding harness",
-      "summary": "R&D sandbox with Docker evaluation gates, human approval UI, and vector memory for safer coding agents.",
-      "link": "https://github.com/alyekseyenko/praxis-alygen"
-    }
-  ],
+  "other_work": [],
   "skill_groups": {
     "AI": [
       "LangGraph",
