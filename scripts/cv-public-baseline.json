@@ -1,18 +1,19 @@
 {
   "personal_info": {
-    "title": "AI & Automation Engineer · Digital Transformation Lead",
-    "tagline": "I build and run production AI and automation systems for a four-brand group, partnering with owners on strategy and delivery.",
+    "title": "Digital Transformation Lead · AI & Automation Engineer",
+    "tagline": "I own production systems for a four-brand group—ERP data, CRM, field apps, and automation—working directly with owners on ROI and delivery. Remote EU / US.",
     "location": "Portugal · remote (EU / US)",
     "github": "https://github.com/alyekseyenko",
     "photo": "/profile.jpeg"
   },
   "highlights": [
-    { "label": "Workflow runs in 7 days (n8n)", "value": "~22.5k" },
-    { "label": "Governed ERP rows replicated", "value": "5.4M+" },
-    { "label": "Deterministic quote price tiers", "value": "124k+" },
-    { "label": "Customers on CRM & field stack", "value": "15k+" },
-    { "label": "B2B companies audited (ALYGEN)", "value": "6,000+" },
-    { "label": "Valorant LFG community (Discord)", "value": "~13k" }
+    { "label": "Production workflows (n8n, 7 days)", "value": "~22.5k runs" },
+    { "label": "Governed ERP replica (Postgres)", "value": "5.4M+ rows" },
+    { "label": "Field & ops app (daily users)", "value": "40" },
+    { "label": "Customers on CRM & service stack", "value": "15k+" },
+    { "label": "Distributor commercial network (PHC-backed)", "value": "500+" },
+    { "label": "Automation portfolio hours saved", "value": "~465/mo" },
+    { "label": "Freelance B2B revenue closed (ALYGEN)", "value": "€20k+" }
   ],
   "featured_project_ids": [
     "habitai_unified_platform",
@@ -113,6 +114,11 @@
       ],
       "tech": ["Python", "FastAPI", "PostgreSQL", "React", "Docker", "Discord OAuth"]
     }
+  },
+  "experience_overlays": {
+    "ALYGEN (freelance B2B practice)": [
+      "Built Alygen CRM (open source): automated technical audits, ML lead scoring, and agent-assisted outreach across email and messaging."
+    ]
   },
   "other_work": [
     {

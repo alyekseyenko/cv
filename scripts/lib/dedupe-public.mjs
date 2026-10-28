@@ -4,6 +4,7 @@ export function extractMetricTokens(text) {
   const s = String(text).toLowerCase();
   const found = new Set();
   const patterns = [
+    /€\s*[\d.]+\s*k\+?/gi,
     /\d[\d.,]*\s*(?:k|m)\+?/gi,
     /\d[\d.,]+\+/g,
     /~\s*\d[\d.,]*/g,
@@ -19,12 +20,18 @@ export function extractMetricTokens(text) {
 
 export function sentenceOverlapsHighlights(sentence, highlights) {
   const st = extractMetricTokens(sentence);
-  if (!st.length) return false;
   const hv = (highlights ?? [])
     .map((h) => `${h.label} ${h.value}`)
     .join(" ")
     .toLowerCase();
-  return st.some((tok) => hv.includes(tok.replace(/^~/, "")) || hv.includes(tok));
+  if (st.length) {
+    if (st.some((tok) => hv.includes(tok.replace(/^~/, "")) || hv.includes(tok))) {
+      return true;
+    }
+  }
+  const s = String(sentence).toLowerCase();
+  if (/€\s*20k|20k\+/.test(s) && hv.includes("20k")) return true;
+  return false;
 }
 
 export function projectCorpus(project) {
@@ -52,13 +59,19 @@ export function dedupeExperienceBullets(experience, featuredProjects, highlights
 
   return (experience ?? []).map((role) => {
     const original = role.bullets ?? [];
-    let bullets = original.filter((b) => redundancyScore(b, highlights, corpora) <= maxScore);
+    let bullets = original.filter(
+      (b) =>
+        !sentenceOverlapsHighlights(b, highlights) &&
+        redundancyScore(b, highlights, corpora) <= maxScore,
+    );
 
     if (bullets.length === 0 && original.length > 0) {
-      const ranked = [...original].sort(
-        (a, b) => redundancyScore(a, highlights, corpora) - redundancyScore(b, highlights, corpora),
-      );
-      bullets = [ranked[0]];
+      const ranked = original
+        .filter((b) => !sentenceOverlapsHighlights(b, highlights))
+        .sort(
+          (a, b) => redundancyScore(a, highlights, corpora) - redundancyScore(b, highlights, corpora),
+        );
+      bullets = ranked.length ? [ranked[0]] : [];
     }
 
     return { ...role, bullets: bullets.slice(0, 4) };

@@ -125,6 +125,16 @@ function curateExperience(experience) {
   }));
 }
 
+function applyExperienceOverlays(experience, overlays) {
+  if (!overlays || typeof overlays !== "object") return experience;
+  return experience.map((role) => {
+    const extra = overlays[role.company];
+    if (!extra?.length) return role;
+    if (role.bullets?.length) return role;
+    return { ...role, bullets: extra.map((b) => normalizeCopy(b)).slice(0, 2) };
+  });
+}
+
 function buildSkillGroups(hardSkills) {
   const hardSet = new Set(hardSkills ?? []);
   const groups = Object.fromEntries(
@@ -205,10 +215,9 @@ export function buildPublicCv(raw, baselinePath, options = {}) {
   const projectImpactText = featured.flatMap((p) => p.impact ?? []).join(" ");
   const summary = buildRecruiterSummary(raw, highlights, projectImpactText);
 
-  const experience = dedupeExperienceBullets(
-    curateExperience(raw.experience),
-    featured,
-    highlights,
+  const experience = applyExperienceOverlays(
+    dedupeExperienceBullets(curateExperience(raw.experience), featured, highlights),
+    baseline.experience_overlays,
   );
 
   const info = raw.personal_info ?? {};
