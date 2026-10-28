@@ -35,6 +35,10 @@
     {
       "label": "Automation portfolio hours saved",
       "value": "~465/mo"
+    },
+    {
+      "label": "Freelance B2B revenue closed (ALYGEN)",
+      "value": "€20k+"
     }
   ],
   "experience": [
@@ -71,7 +75,7 @@
       "role": "Freelance B2B Automation & Digital Services Consultant",
       "period": "2021 · Present",
       "bullets": [
-        "Run ALYGEN, the trading name for my freelance B2B services (web, automation, and digital operations for SMBs): closed €20k+ in client work after prospecting 6,000+ companies with automated audits."
+        "Built Alygen CRM (open source): automated technical audits, ML lead scoring, and agent-assisted outreach across email and messaging."
       ]
     }
   ],
