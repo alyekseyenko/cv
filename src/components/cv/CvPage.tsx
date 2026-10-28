@@ -21,10 +21,7 @@ export function CvPage() {
       <SiteNav />
       <main>
         <Container>
-          <HeroSection
-            info={cv.personal_info}
-            snapshotMetrics={cv.highlights.slice(0, 3)}
-          />
+          <HeroSection info={cv.personal_info} />
 
           <Section id="about" title="About">
             <div className="grid gap-8 xl:grid-cols-2 xl:gap-12">

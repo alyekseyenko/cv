@@ -1,10 +1,15 @@
 import { readFileSync, existsSync } from "node:fs";
+import { extractMetricTokens, sentenceOverlapsHighlights } from "./dedupe-public.mjs";
 
 function formatK(n) {
   if (n == null || Number.isNaN(Number(n))) return null;
   const num = Number(n);
   if (num >= 1_000_000) return `${(num / 1_000_000).toFixed(1).replace(/\.0$/, "")}M+`;
-  if (num >= 1000) return `~${Math.round(num / 1000)}k`;
+  if (num >= 1000) {
+    const k = num / 1000;
+    const rounded = k >= 10 ? k.toFixed(1).replace(/\.0$/, "") : String(Math.round(k));
+    return `${rounded}k`;
+  }
   return String(num);
 }
 
@@ -44,30 +49,45 @@ export function syncHighlightsFromRaw(raw, baselineHighlights) {
   return Object.values(byLabel);
 }
 
-/** CEO/recruiter-friendly summary: metrics first, owner scope second — no generic positioning fluff. */
-export function buildRecruiterSummary(raw) {
+/** Qualitative summary: no metrics that already appear in highlights. */
+export function buildRecruiterSummary(raw, highlights = [], projectImpactText = "") {
   const base = String(raw?.summary || "").trim();
   const sentences = base.split(/(?<=[.!?])\s+/).filter(Boolean);
-  let out = sentences.slice(0, 2).join(" ");
+  const parts = [];
+  const corpus = projectImpactText.toLowerCase();
+
+  if (sentences[0]) parts.push(sentences[0]);
+
+  for (let i = 1; i < sentences.length; i++) {
+    if (sentenceOverlapsHighlights(sentences[i], highlights)) continue;
+    const mt = extractMetricTokens(sentences[i]);
+    if (mt.some((t) => corpus.includes(t.replace(/^~/, "")))) continue;
+    const hv = (highlights ?? []).map((h) => h.value).join(" ");
+    const onlyHighlightMetrics =
+      mt.length > 0 && mt.every((t) => hv.toLowerCase().includes(t.replace(/^~/, "")));
+    if (onlyHighlightMetrics) continue;
+    parts.push(sentences[i]);
+    break;
+  }
 
   const ec = raw?.employer_context;
   if (ec?.role_framing?.scope || ec?.role_framing?.executive_partner) {
     const line =
-      "Sole hands-on technology owner for a four-brand group—ERP, CRM, field apps, and automation—with family leadership on ROI (self-hosted stack and FinOps, not SaaS sprawl).";
-    if (!/sole|de facto|only person/i.test(out)) {
-      out = out ? `${out} ${line}` : line;
+      "Sole hands-on technology owner—architecture, build, and ops—with leadership on ROI (self-hosted stack and FinOps, not SaaS sprawl).";
+    if (!/sole|de facto|only person/i.test(parts.join(" "))) {
+      parts.push(line);
     }
   }
 
+  let out = parts.join(" ");
   if (out.length > 620) {
     out = out.slice(0, 617).replace(/\s+\S*$/, "") + ".";
   }
   return out || base.slice(0, 400);
 }
 
-export function syncTaglineFromRaw(raw, baselineTagline) {
-  const ec = raw?.employer_context?.role_framing?.primary_focus_2026;
-  if (ec && ec.length < 160) return ec;
+/** Public site always uses baseline tagline (internal focus strings stay in Job Hunter). */
+export function syncTaglineFromRaw(_raw, baselineTagline) {
   return baselineTagline;
 }
 

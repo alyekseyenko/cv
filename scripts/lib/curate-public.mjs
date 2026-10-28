@@ -7,6 +7,7 @@ import {
   loadCoverLetterContext,
   buildRecruiterSummary,
 } from "./merge-live-context.mjs";
+import { dedupeExperienceBullets } from "./dedupe-public.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -191,7 +192,6 @@ export function buildPublicCv(raw, baselinePath, options = {}) {
   const contextJson = loadCoverLetterContext(options.contextPath);
   const highlights = syncHighlightsFromRaw(raw, baseline.highlights);
   const tagline = syncTaglineFromRaw(raw, baseline.personal_info.tagline);
-  let summary = buildRecruiterSummary(raw);
 
   const projectsById = Object.fromEntries((raw.projects ?? []).map((p) => [p.id, p]));
   const featured = baseline.featured_project_ids
@@ -201,6 +201,15 @@ export function buildPublicCv(raw, baselinePath, options = {}) {
       return mapFeaturedProject(rawProject, baseline.project_overlays[id] ?? {});
     })
     .filter(Boolean);
+
+  const projectImpactText = featured.flatMap((p) => p.impact ?? []).join(" ");
+  const summary = buildRecruiterSummary(raw, highlights, projectImpactText);
+
+  const experience = dedupeExperienceBullets(
+    curateExperience(raw.experience),
+    featured,
+    highlights,
+  );
 
   const info = raw.personal_info ?? {};
 
@@ -218,7 +227,7 @@ export function buildPublicCv(raw, baselinePath, options = {}) {
     },
     summary,
     highlights,
-    experience: curateExperience(raw.experience),
+    experience,
     projects: featured,
     other_work: baseline.other_work,
     skill_groups: buildSkillGroups(raw.hard_skills),
