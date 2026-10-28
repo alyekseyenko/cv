@@ -13,6 +13,8 @@ const sourcePath =
 const neuralUrl = process.env.CV_NEURAL_URL ?? "http://localhost:3004/api/cv/neural";
 
 async function loadRawCv() {
+  const fileRaw = JSON.parse(readFileSync(sourcePath, "utf8"));
+
   if (process.env.CV_USE_NEURAL === "1") {
     try {
       const res = await fetch(neuralUrl, { signal: AbortSignal.timeout(8000) });
@@ -20,7 +22,13 @@ async function loadRawCv() {
         const data = await res.json();
         if (data?.profile) {
           console.log(`[curate] Loaded profile from ${neuralUrl}`);
-          return data.profile;
+          return {
+            ...data.profile,
+            employer_context:
+              data.profile.employer_context ?? fileRaw.employer_context ?? null,
+            operational_metrics:
+              data.profile.operational_metrics ?? fileRaw.operational_metrics ?? null,
+          };
         }
       }
     } catch (err) {
@@ -28,14 +36,21 @@ async function loadRawCv() {
     }
   }
 
-  const raw = JSON.parse(readFileSync(sourcePath, "utf8"));
   console.log(`[curate] Loaded ${sourcePath}`);
-  return raw;
+  return fileRaw;
 }
+
+const defaultJobHunterRoot =
+  process.env.JOB_HUNTER_ROOT ??
+  "C:\\Users\\habit\\Desktop\\linked - Cópia (4) - Cópia";
+
+const contextPath =
+  process.env.CV_CONTEXT_SOURCE ??
+  join(defaultJobHunterRoot, "backend", "data", "cover_letter", "context.json");
 
 export async function curateToFile() {
   const raw = await loadRawCv();
-  const publicCv = buildPublicCv(raw);
+  const publicCv = buildPublicCv(raw, undefined, { contextPath });
   const dest = join(root, "src", "content", "cv.generated.json");
   mkdirSync(dirname(dest), { recursive: true });
   writeFileSync(dest, `${JSON.stringify(publicCv, null, 2)}\n`, "utf8");

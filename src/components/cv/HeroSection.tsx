@@ -1,10 +1,16 @@
 import { MetaRow } from "@/components/ds";
 import { Separator } from "@/components/ui/separator";
-import type { PersonalInfo } from "@/lib/cv-types";
+import type { Highlight, PersonalInfo } from "@/lib/cv-types";
 import { Mail } from "lucide-react";
 import Image from "next/image";
 
-export function HeroSection({ info }: { info: PersonalInfo }) {
+export function HeroSection({
+  info,
+  snapshotMetrics = [],
+}: {
+  info: PersonalInfo;
+  snapshotMetrics?: Highlight[];
+}) {
   const photoSrc = info.photo ?? "/profile.jpeg";
 
   return (
@@ -34,6 +40,23 @@ export function HeroSection({ info }: { info: PersonalInfo }) {
             </p>
           ) : null}
           <p className="mt-3 text-sm text-muted-foreground">{info.location}</p>
+          {snapshotMetrics.length > 0 ? (
+            <dl className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
+              {snapshotMetrics.map((m) => (
+                <div
+                  key={m.label}
+                  className="rounded-2xl border border-border/80 bg-muted/30 px-4 py-3 text-left"
+                >
+                  <dt className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
+                    {m.label}
+                  </dt>
+                  <dd className="mt-1 font-heading text-lg text-foreground sm:text-xl">
+                    {m.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          ) : null}
         </div>
         <div className="flex flex-col gap-3 lg:col-span-2 xl:col-span-1 xl:col-start-3 xl:pt-2">
           <MetaRow

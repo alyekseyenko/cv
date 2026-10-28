@@ -1,6 +1,12 @@
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  syncHighlightsFromRaw,
+  syncTaglineFromRaw,
+  loadCoverLetterContext,
+  buildRecruiterSummary,
+} from "./merge-live-context.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -177,10 +183,15 @@ function mapFeaturedProject(rawProject, overlay) {
   };
 }
 
-export function buildPublicCv(raw, baselinePath) {
+export function buildPublicCv(raw, baselinePath, options = {}) {
   const baseline = JSON.parse(
     readFileSync(baselinePath ?? join(__dirname, "..", "cv-public-baseline.json"), "utf8"),
   );
+
+  const contextJson = loadCoverLetterContext(options.contextPath);
+  const highlights = syncHighlightsFromRaw(raw, baseline.highlights);
+  const tagline = syncTaglineFromRaw(raw, baseline.personal_info.tagline);
+  let summary = buildRecruiterSummary(raw);
 
   const projectsById = Object.fromEntries((raw.projects ?? []).map((p) => [p.id, p]));
   const featured = baseline.featured_project_ids
@@ -197,7 +208,7 @@ export function buildPublicCv(raw, baselinePath) {
     personal_info: {
       name: info.name || "Vadym Alyekseyenko",
       title: baseline.personal_info.title,
-      tagline: baseline.personal_info.tagline,
+      tagline,
       email: info.email,
       phone: info.phone,
       location: baseline.personal_info.location,
@@ -205,8 +216,8 @@ export function buildPublicCv(raw, baselinePath) {
       github: baseline.personal_info.github,
       photo: baseline.personal_info.photo,
     },
-    summary: curateSummary(raw.summary),
-    highlights: baseline.highlights,
+    summary,
+    highlights,
     experience: curateExperience(raw.experience),
     projects: featured,
     other_work: baseline.other_work,
