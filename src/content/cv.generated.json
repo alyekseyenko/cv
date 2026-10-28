@@ -2,7 +2,7 @@
   "personal_info": {
     "name": "Vadym Alyekseyenko",
     "title": "Digital Transformation Lead · AI & Automation Engineer",
-    "tagline": "Estores Rainha turnaround (Twenty CRM, app-tecnicos, paper replacement, data visibility); still owns group-wide risk, quoting, and automation",
+    "tagline": "I own production systems for a four-brand group—ERP data, CRM, field apps, and automation—working directly with owners on ROI and delivery. Remote EU / US.",
     "email": "vadymalyekseyenko@gmail.com",
     "phone": "+351910799500",
     "location": "Portugal · remote (EU / US)",
@@ -10,11 +10,11 @@
     "github": "https://github.com/alyekseyenko",
     "photo": "/profile.jpeg"
   },
-  "summary": "Digital transformation and AI automation lead for HABITARMOS / ESTORESRAINHA GROUP (four brands): built HABITAI cockpit unifying ERP, CRM, logistics, inventory AI, marketing ops, and field apps. Architected PHC cloud read-replica (5M+ rows, dbt marts, Metabase BI for leadership) and 80+ production workflows (~22.5k n8n runs/7d; n8n, Zoho Flow, Make.com). Sole hands-on technology owner for a four-brand group—ERP, CRM, field apps, and automation—with family leadership on ROI (self-hosted stack and FinOps, not SaaS sprawl).",
+  "summary": "Digital transformation and AI automation lead for HABITARMOS / ESTORESRAINHA GROUP (four brands): built HABITAI cockpit unifying ERP, CRM, logistics, inventory AI, marketing ops, and field apps. Sole hands-on technology owner—architecture, build, and ops—with leadership on ROI (self-hosted stack and FinOps, not SaaS sprawl).",
   "highlights": [
     {
       "label": "Production workflows (n8n, 7 days)",
-      "value": "~~23k runs"
+      "value": "~22.5k runs"
     },
     {
       "label": "Governed ERP replica (Postgres)",
@@ -44,10 +44,7 @@
       "role": "Digital Transformation Lead & AI/Automation Engineer",
       "period": "Jan 2026 · Present",
       "bullets": [
-        "Architected a production PHC ERP cloud read replica (5M+ rows, ~8.9 GB PostgreSQL, 24+22 tables, 15-min sync, 99.1% reliability) with dbt marts, Metabase executive dashboards (Docker, SSH tunnel to VPS), and MCP metric tools so leadership and CRM use governed data, not LAN SQL.",
-        "Built HABITAI operations cockpit across 4 brands: MCP agent orchestration, multimodal RAG (Docling, ColPali, Qdrant), predictive inventory, Distribution 360, and executive KPI dashboards.",
-        "Scaled 80+ production workflows (n8n, Zoho Flow, Make.com) to ~22.5k n8n runs/7d and ~4k Zoho Flow runs/month for ERP-CRM ingestion, alerts, and Discord observability.",
-        "Coached ~40 staff and led UX/UI, multimedia design, and 2 junior developers while translating ERP and CRM data into KPIs for owners and a 500+ distributor network."
+        "Built HABITAI operations cockpit across 4 brands: MCP agent orchestration, multimodal RAG (Docling, ColPali, Qdrant), predictive inventory, Distribution 360, and executive KPI dashboards."
       ]
     },
     {
@@ -56,10 +53,6 @@
       "role": "Senior AI Systems and Automation Engineer",
       "period": "Jan 2024 · Dec 2025",
       "bullets": [
-        "Built ZohoSync PHC SQL Server to Zoho Bigin (EU) for 500+ distributors: 893 accounts, 2,405 contacts, and ~2k pipeline records so reps track targets, gap-to-goal, and stalled deals.",
-        "Led ESTORESRAINHA digital turnaround for 15k+ customers (~11.4k mapped from the cloud replica into Twenty CRM): replaced paper workflows with automated scheduling, catalog, service tracking, and agent-assisted CRM ingestion.",
-        "Delivered app-tecnicos (services-blinds PWA) in production on Hetzner for 40 daily users across technicians, warehouse, dispatch, and office: Next.js 16, offline-first Dexie queue, Google Maps routing, GraphQL Twenty CRM sync, transactional outbox, and GCP Speech-to-Text visit summaries.",
-        "Engineered orcamentos-ia quoting platform (FastAPI + React): 124k+ deterministic pricing tiers across 20+ supplier price-list plug-ins with Docling/Celery PDF ingestion, cutting multi-brand quote generation from days to minutes with zero price hallucination.",
         "Shipped the PHC ERP cloud read replica (Oct 2026): wave-4 allowlisted PHC tables, dbt marts, and PII-scoped agent roles decoupling CRM and workflows from on-prem SQL Server."
       ]
     },
@@ -69,7 +62,6 @@
       "role": "Software and Automation Developer",
       "period": "Jul 2020 · Dec 2023",
       "bullets": [
-        "Built the group's web footprint from zero across 4 brands: corporate sites habitarmos.com and estoresrainha.com (custom HTML/CSS) and high-traffic catalog properties arkitek.pt and skuba.com.pt (WordPress), scaling ARKITEK/SKUBA to 15k+ combined monthly visits through technical SEO and catalog storytelling.",
         "Automated product visual generation with custom Stable Diffusion SDXL LoRAs via ComfyUI and built multimodal computer-vision pipelines for SKU matching and catalog synchronization."
       ]
     },
@@ -79,9 +71,7 @@
       "role": "Freelance B2B Automation & Digital Services Consultant",
       "period": "2021 · Present",
       "bullets": [
-        "Run ALYGEN, the trading name for my freelance B2B services (web, automation, and digital operations for SMBs): closed €20k+ in client work after prospecting 6,000+ companies with automated audits.",
-        "Built Alygen CRM, my own sales tool (https://github.com/alyekseyenko/alygen), scaling outreach from ~4 to ~200 leads/day with sub-3-minute proposals via Chromium audits, ML lead scoring, and multi-agent Email, WhatsApp, and Telegram dispatch (React, Node.js, FastAPI, PostgreSQL/pgvector).",
-        "Long-term client Rute Carreira (coaching & wellness): built rutecarreira.com, asuaessencia.com, and oseuplanob.com from zero, grew oseuplanob.com leads from ~2/week to ~5-10/day, and have run the e-commerce and luxury event ticketing in production for 3+ years."
+        "Run ALYGEN, the trading name for my freelance B2B services (web, automation, and digital operations for SMBs): closed €20k+ in client work after prospecting 6,000+ companies with automated audits."
       ]
     }
   ],
