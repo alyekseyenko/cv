@@ -381,6 +381,84 @@
         "Published client-facing sites"
       ],
       "tech": []
+    },
+    {
+      "id": "habitai_enterprise_platform",
+      "title": "HABITAI: Enterprise Agentic Platform",
+      "problem": "An enterprise agentic platform featuring custom MCP servers and Zero‑Trust CQRS read store decoupling SQL execution.",
+      "built": "",
+      "impact": [
+        "90% reduction in schema lookup latency",
+        "<0.8% hallucination rate validated via RAGAS"
+      ],
+      "tech": []
+    },
+    {
+      "id": "habitarmos_automation_portfolio",
+      "title": "HABITARMOS 75+ Workflow Ecosystem",
+      "problem": "An ecosystem of 75+ production workflows processing 625K+ executions/year with self‑healing recovery.",
+      "built": "",
+      "impact": [
+        "2409% portfolio ROI with €814K annual pipeline value",
+        "Reclaimed ~396h/month across 33‑person organization"
+      ],
+      "tech": []
+    },
+    {
+      "id": "alygen_crm_pipeline",
+      "title": "Alygen CRM: Multi‑Agent Lead Scoring",
+      "problem": "A multi‑agent AI pipeline combining website audits, ML lead scoring, and automated PT‑PT proposal generation.",
+      "built": "",
+      "impact": [
+        "Surfaced €6M in revenue potential",
+        "Converted €12K in closed pipeline within 7 days"
+      ],
+      "tech": []
+    },
+    {
+      "id": "linkedin_neural_scout",
+      "title": "LinkedIn Neural Scout",
+      "problem": "A 6‑agent LangGraph swarm with dual‑memory system and LightRAG‑hku graph retrieval bypassing anti‑bot protection.",
+      "built": "",
+      "impact": [
+        "98% match precision",
+        "Full OTLP tracing on 6‑container microservices stack"
+      ],
+      "tech": []
+    },
+    {
+      "id": "ai_pricing_etl_pipeline",
+      "title": "Async AI/ETL Pricing Pipeline",
+      "problem": "An async pricing pipeline parsing 200K+ SKUs from nested tables using Vertex AI/Gemini.",
+      "built": "",
+      "impact": [
+        "Cut quote turnaround from 3 days to <1 minute",
+        "Reduced catalog processing costs to <$0.15"
+      ],
+      "tech": []
+    },
+    {
+      "id": "ai_3d_render_automation_habitarmos",
+      "title": "AI 3D Render & ComfyUI Automation",
+      "problem": "Automated product image generation by fine‑tuning Stable Diffusion SDXL LoRAs via ComfyUI.",
+      "built": "",
+      "impact": [
+        "Scaled visual output 8x to 50+ monthly scenes",
+        "Eliminated manual rendering bottlenecks"
+      ],
+      "tech": []
+    },
+    {
+      "id": "estores_rainha_digital_transformation",
+      "title": "Estores Rainha Digital Transformation Suite",
+      "problem": "End‑to‑end modernization of Estores Rainha operations: Twenty CRM, custom app‑tecnicos PWA, PHC read replica, dbt‑powered data marts, Metabase dashboards, and automated quoting workflows.",
+      "built": "",
+      "impact": [
+        "Migrated 40 daily field technicians from paper to digital workflow",
+        "Implemented PHC replica delivering real‑time metrics and contributing to 2x revenue growth for HabitArmos",
+        "Reduced manual reporting effort by ~400h/month"
+      ],
+      "tech": []
     }
   ],
   "other_work": [],
