@@ -459,18 +459,6 @@
         "Reduced manual reporting effort by ~400h/month"
       ],
       "tech": []
-    },
-    {
-      "id": "app_tecnicos_field_pwa",
-      "title": "app-tecnicos field operations PWA (services-blinds)",
-      "problem": "Production field PWA for Estores Rainha on Hetzner.",
-      "built": "Operations system of record on Twenty CRM: agenda, millimetre measurements, warehouse prep, visit close, CEO metrics, HMAC customer rating.",
-      "impact": [
-        "Public README 2026-11-20: about 20 people in production (earlier internal count about 40 daily users)",
-        "640+ Vitest tests, Playwright smoke, GitHub Actions",
-        "600-line CI ratchet: god files split from 7 to 0"
-      ],
-      "tech": []
     }
   ],
   "other_work": [],
