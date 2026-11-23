@@ -48,7 +48,7 @@
       "role": "Digital Transformation Lead & AI/Automation Engineer",
       "period": "Jan 2026 · Present",
       "bullets": [
-        "Architected a production PHC ERP cloud read replica (5M+ rows, ~8.9 GB PostgreSQL, 24+22 tables, 15-min sync, 99.1% reliability) with dbt marts, Metabase executive dashboards (Docker, SSH tunnel to VPS), and MCP metric tools so leadership and CRM use governed data, not LAN SQL."
+        "Built HABITAI operations cockpit across 4 brands: MCP agent orchestration, multimodal RAG (Docling, ColPali, Qdrant), predictive inventory, Distribution 360, and executive KPI dashboards."
       ]
     },
     {
@@ -478,6 +478,18 @@
         "Migrated 40 daily field technicians from paper to digital workflow",
         "Implemented PHC replica delivering real‑time metrics and contributing to 2x revenue growth for HabitArmos",
         "Reduced manual reporting effort by ~400h/month"
+      ],
+      "tech": []
+    },
+    {
+      "id": "app_tecnicos_field_pwa",
+      "title": "app-tecnicos field operations PWA (services-blinds)",
+      "problem": "Production field PWA for Estores Rainha on Hetzner.",
+      "built": "Operations system of record on Twenty CRM: agenda, millimetre measurements, warehouse prep, visit close, CEO metrics, HMAC customer rating.",
+      "impact": [
+        "Public README 2026-11-20: about 20 people in production (earlier internal count about 40 daily users)",
+        "640+ Vitest tests, Playwright smoke, GitHub Actions",
+        "600-line CI ratchet: god files split from 7 to 0"
       ],
       "tech": []
     }
