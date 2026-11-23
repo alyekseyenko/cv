@@ -383,6 +383,27 @@
       "tech": []
     },
     {
+      "id": "casa_home_os",
+      "title": "Casa · self-hosted home OS (energy, automation, family ops)",
+      "period": "2024 · Present",
+      "company": "Personal / Independent",
+      "problem": "Personal 24/7 Linux host: Home Assistant as the single control plane for a house that paid kWh and contracted power without a production curve, and ran family ops (meals, documents, photos, cinema, calendar) in one person's head.",
+      "built": "Architect & operator · instrumentation, Docker Compose, automations, family product adoption",
+      "impact": [
+        "Closed the 'two years of unmetered PV' gap: production/import/export enter the same control plane as named loads",
+        "Surplus→DHW loop designed so the tank does not heat from the grid on guesswork; €/month TBD after Energy + invoices",
+        "Household uses the ops apps (meals, docs, photos, cinema, calendar) · adoption is the success bar"
+      ],
+      "tech": [
+        "Home Assistant",
+        "Docker Compose",
+        "Linux",
+        "AdGuard Home",
+        "Shelly energy monitor / relays",
+        "temperature probe on DHW"
+      ]
+    },
+    {
       "id": "habitai_enterprise_platform",
       "title": "HABITAI: Enterprise Agentic Platform",
       "problem": "An enterprise agentic platform featuring custom MCP servers and Zero‑Trust CQRS read store decoupling SQL execution.",
