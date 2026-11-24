@@ -1,7 +1,7 @@
 import { MetaRow } from "@/components/ds";
 import { Separator } from "@/components/ui/separator";
 import type { Highlight, PersonalInfo } from "@/lib/cv-types";
-import { Mail } from "lucide-react";
+import { Download, Mail } from "lucide-react";
 import Image from "next/image";
 
 export function HeroSection({
@@ -12,6 +12,7 @@ export function HeroSection({
   snapshotMetrics?: Highlight[];
 }) {
   const photoSrc = info.photo ?? "/profile.jpeg";
+  const pdfHref = info.pdf_url ?? "/Vadym_Alyekseyenko_CV.pdf";
 
   return (
     <header id="top" className="pt-14 pb-8 sm:pt-20 sm:pb-10">
@@ -33,7 +34,9 @@ export function HeroSection({
         ) : null}
         <div className="min-w-0 text-center lg:text-left">
           <h1 className="font-heading text-display text-foreground">{info.name}</h1>
-          <p className="mt-3 text-lg text-muted-foreground sm:text-xl">{info.title}</p>
+          <p className="mt-3 text-lg font-medium text-foreground/80 sm:text-xl">
+            {info.title}
+          </p>
           {info.tagline ? (
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-foreground/80 sm:text-base">
               {info.tagline}
@@ -99,6 +102,14 @@ export function HeroSection({
               }
             />
           ) : null}
+          <a
+            href={pdfHref}
+            download="Vadym_Alyekseyenko_CV.pdf"
+            className="no-print mt-2 inline-flex h-9 items-center justify-center gap-2 rounded-lg bg-foreground px-4 text-xs font-medium text-background transition-opacity hover:opacity-90"
+          >
+            <Download className="size-3.5" aria-hidden />
+            Download 2-Page ATS CV (PDF)
+          </a>
         </div>
       </div>
       <Separator className="my-8 bg-border/70" />

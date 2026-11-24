@@ -9,16 +9,19 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { Menu } from "lucide-react";
+import { Download, Menu } from "lucide-react";
 import { useState } from "react";
 
 const LINKS = [
   { href: "#about", label: "About" },
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
+  { href: "#labs", label: "Labs" },
   { href: "#skills", label: "Skills" },
-  { href: "#education", label: "Education" },
+  { href: "#education", label: "Credentials" },
 ];
+
+const PDF_HREF = "/Vadym_Alyekseyenko_CV.pdf";
 
 function NavLinks({
   className,
@@ -48,9 +51,7 @@ export function SiteNav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header
-      className="no-print sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md"
-    >
+    <header className="no-print sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-14 w-full max-w-none items-center justify-between px-5 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
         <a
           href="#top"
@@ -62,14 +63,14 @@ export function SiteNav() {
           <NavLinks className="flex-row" />
         </nav>
         <div className="flex items-center gap-2">
-          <Button
-            variant="outline"
-            size="sm"
-            className="hidden sm:inline-flex print:hidden"
-            onClick={() => window.print()}
+          <a
+            href={PDF_HREF}
+            download="Vadym_Alyekseyenko_CV.pdf"
+            className="hidden h-8 items-center gap-1.5 rounded-md border border-border bg-background px-3 text-xs font-medium text-foreground transition-colors hover:bg-muted sm:inline-flex print:hidden"
           >
-            Save PDF
-          </Button>
+            <Download className="size-3.5 opacity-70" aria-hidden />
+            2-Page PDF
+          </a>
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger
               className="md:hidden"
@@ -91,16 +92,15 @@ export function SiteNav() {
                 className="mt-6 flex-col items-stretch"
                 onNavigate={() => setOpen(false)}
               />
-              <Button
-                className="mt-6 w-full"
-                variant="secondary"
-                onClick={() => {
-                  setOpen(false);
-                  window.print();
-                }}
+              <a
+                href={PDF_HREF}
+                download="Vadym_Alyekseyenko_CV.pdf"
+                onClick={() => setOpen(false)}
+                className="mt-6 inline-flex h-9 w-full items-center justify-center gap-2 rounded-md bg-secondary px-4 text-sm font-medium text-secondary-foreground transition-colors hover:bg-secondary/80"
               >
-                Save PDF
-              </Button>
+                <Download className="size-4 opacity-70" aria-hidden />
+                Download 2-Page PDF
+              </a>
             </SheetContent>
           </Sheet>
         </div>

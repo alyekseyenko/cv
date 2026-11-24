@@ -40,7 +40,11 @@ export function CvPage() {
             <Timeline items={cv.experience} />
           </Section>
 
-          <Section id="projects" title="Projects">
+          <Section
+            id="projects"
+            title="Selected systems"
+            subtitle="Production platforms, data pipelines, and open-source tools I architected and operate."
+          >
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:items-start">
               {cv.projects.map((project) => (
                 <ProjectCard key={project.id} project={project} />
@@ -49,12 +53,16 @@ export function CvPage() {
           </Section>
 
           {cv.other_work.length > 0 ? (
-            <Section id="other-work" title="Other work">
+            <Section
+              id="labs"
+              title="Open-source labs & personal systems"
+              subtitle="Internal automation portfolio, R&D harnesses, and self-hosted personal lab—kept separate from employer production."
+            >
               <WorkList items={cv.other_work} />
             </Section>
           ) : null}
 
-          <Section id="skills" title="Skills">
+          <Section id="skills" title="Technical stack">
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
               {skillEntries.map(([name, skills]) => (
                 <SkillGroup key={name} name={name} skills={skills} />

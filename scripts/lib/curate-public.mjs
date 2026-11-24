@@ -4,7 +4,6 @@ import { fileURLToPath } from "node:url";
 import {
   syncHighlightsFromRaw,
   syncTaglineFromRaw,
-  loadCoverLetterContext,
   buildRecruiterSummary,
 } from "./merge-live-context.mjs";
 import { dedupeExperienceBullets } from "./dedupe-public.mjs";
@@ -15,11 +14,11 @@ const SKILL_GROUPS = {
   AI: [
     "LangGraph",
     "Model Context Protocol (MCP)",
+    "Docling",
+    "Qdrant",
+    "ColPali",
     "Generative AI",
     "Machine Learning",
-    "Docling",
-    "CrewAI",
-    "Qdrant",
     "Vertex AI",
   ],
   Engineering: [
@@ -29,8 +28,9 @@ const SKILL_GROUPS = {
     "React",
     "Next.js",
     "GraphQL",
-    "Playwright",
     "Celery",
+    "Vitest",
+    "Playwright",
   ],
   Data: [
     "PostgreSQL",
@@ -45,28 +45,29 @@ const SKILL_GROUPS = {
   "Cloud & Ops": [
     "Docker",
     "Docker Compose",
+    "Linux",
+    "GitHub Actions",
+    "Hetzner Cloud",
     "Google Cloud Platform (GCP)",
     "Google Cloud Platform",
-    "Hetzner Cloud",
     "Prometheus",
     "Grafana",
-    "GitHub Actions",
-    "Observability",
+    "Loki",
+    "Alertmanager",
   ],
   "Automation & CRM": [
     "n8n",
+    "Make.com",
     "Zoho Bigin",
     "Zoho Flow",
-    "Make.com",
     "Twenty CRM",
     "PHC ERP",
     "Process Automation",
-    "WordPress",
   ],
 };
 
 const BULLET_BLOCK_RE =
-  /2x nominal|2,890|2890%|€6,100|€11,100|innovation_hub_roi|not audited|internal figures|growth not profit|local path:|this repo|Rute C\.|snapshot \(11:21\)|habitarmos_revenue/i;
+  /2x nominal|2,890|2890%|2409%|€814|814k|396h|33-person|€6,100|€11,100|€6m|€7m|98% match|ragas|innovation_hub_roi|not audited|internal figures|growth not profit|local path:|this repo|rute carreira|rute c\.|rutecarreira|asuaessencia|oseuplanob|snapshot \(11:21\)|habitarmos_revenue|4 direct reports|lead 4 people|4-person|habitarmos-phc-replica|ssh tunnel|~8\.9\s*gb/i;
 
 const COPY_FIXES = [
   [
@@ -74,6 +75,7 @@ const COPY_FIXES = [
     "custom HTML/CSS for habitarmos.com and estoresrainha.com and WordPress catalogs on arkitek.pt and skuba.com.pt",
   ],
   [/BA in Graphic and Multimedia Design/gi, "BA in Multimedia Design"],
+  [/\b40 daily users\b/gi, "~20 people"],
 ];
 
 export function normalizeCopy(text) {
@@ -105,13 +107,6 @@ function pickTech(techStack, limit = 6) {
     .slice(0, limit);
 }
 
-function curateSummary(summary) {
-  const text = normalizeCopy(summary || "");
-  if (!text) return "";
-  const sentences = text.split(/(?<=[.!?])\s+/).slice(0, 3);
-  return sentences.join(" ");
-}
-
 function curateExperience(experience) {
   return (experience ?? []).map((role) => ({
     company: role.company,
@@ -121,7 +116,7 @@ function curateExperience(experience) {
     bullets: (role.bullets ?? [])
       .map((b) => normalizeCopy(b))
       .filter((b) => b && !BULLET_BLOCK_RE.test(b))
-      .slice(0, 6),
+      .slice(0, 5),
   }));
 }
 
@@ -131,7 +126,7 @@ function applyExperienceOverlays(experience, overlays) {
     const extra = overlays[role.company];
     if (!extra?.length) return role;
     if (role.bullets?.length) return role;
-    return { ...role, bullets: extra.map((b) => normalizeCopy(b)).slice(0, 2) };
+    return { ...role, bullets: extra.map((b) => normalizeCopy(b)).slice(0, 3) };
   });
 }
 
@@ -144,7 +139,9 @@ function buildSkillGroups(hardSkills) {
     ]),
   );
   for (const [name, list] of Object.entries(groups)) {
-    groups[name] = [...new Set(list.map((s) => s.replace("Google Cloud Platform (GCP)", "Google Cloud Platform")))];
+    groups[name] = [
+      ...new Set(list.map((s) => s.replace("Google Cloud Platform (GCP)", "Google Cloud Platform"))),
+    ];
   }
   return groups;
 }
@@ -152,12 +149,17 @@ function buildSkillGroups(hardSkills) {
 function curateCertifications(certs, allowlist) {
   const allowed = new Set(allowlist);
   return (certs ?? [])
-    .filter((c) => allowed.has(c.name))
+    .filter((c) => allowed.has(c.name) && Boolean(c.issued))
     .map(({ name, issuer, issued }) => ({
       name,
       issuer,
-      issued: issued ? String(issued).slice(0, 4) : undefined,
+      issued: String(issued).slice(0, 4),
     }));
+}
+
+function safePublicLink(rawProject, overlay) {
+  const candidate = overlay.link ?? rawProject.link ?? "";
+  return /^https?:\/\//i.test(String(candidate).trim()) ? String(candidate).trim() : undefined;
 }
 
 function mapFeaturedProject(rawProject, overlay) {
@@ -184,12 +186,7 @@ function mapFeaturedProject(rawProject, overlay) {
     title: overlay.title || normalizeCopy(rawProject.title),
     period: normalizeCopy(rawProject.period),
     company: normalizeCopy(rawProject.company),
-    link:
-      rawProject.link ||
-      (rawProject.repository
-        ? `https://github.com/alyekseyenko/${String(rawProject.repository).replace(/\.git$/, "")}`
-        : undefined) ||
-      undefined,
+    link: safePublicLink(rawProject, overlay),
     problem: overlay.problem || normalizeCopy(rawProject.context?.split(/(?<=[.!?])\s+/)[0] || ""),
     built:
       overlay.built ||
@@ -202,7 +199,7 @@ function mapFeaturedProject(rawProject, overlay) {
 function buildPublicProjectList(raw, baseline, projectsById) {
   const order = baseline.featured_project_ids ?? [];
   const exclude = new Set(baseline.exclude_project_ids ?? []);
-  const includeAll = baseline.include_all_master_projects !== false;
+  const includeAll = baseline.include_all_master_projects === true;
 
   const orderedIds = [];
   const seen = new Set();
@@ -226,23 +223,21 @@ function buildPublicProjectList(raw, baseline, projectsById) {
   );
 }
 
-export function buildPublicCv(raw, baselinePath, options = {}) {
+export function buildPublicCv(raw, baselinePath) {
   const baseline = JSON.parse(
     readFileSync(baselinePath ?? join(__dirname, "..", "cv-public-baseline.json"), "utf8"),
   );
 
-  const contextJson = loadCoverLetterContext(options.contextPath);
   const highlights = syncHighlightsFromRaw(raw, baseline.highlights);
   const tagline = syncTaglineFromRaw(raw, baseline.personal_info.tagline);
 
   const projectsById = Object.fromEntries((raw.projects ?? []).map((p) => [p.id, p]));
   const featured = buildPublicProjectList(raw, baseline, projectsById);
 
-  const projectImpactText = featured.flatMap((p) => p.impact ?? []).join(" ");
-  const summary = buildRecruiterSummary(raw, highlights, projectImpactText);
+  const summary = buildRecruiterSummary(raw, highlights);
 
   const experience = applyExperienceOverlays(
-    dedupeExperienceBullets(curateExperience(raw.experience), featured, highlights),
+    dedupeExperienceBullets(curateExperience(raw.experience)),
     baseline.experience_overlays,
   );
 
@@ -251,7 +246,7 @@ export function buildPublicCv(raw, baselinePath, options = {}) {
   return {
     personal_info: {
       name: info.name || "Vadym Alyekseyenko",
-      title: baseline.personal_info.title,
+      title: baseline.personal_info.title || info.title || "Applied AI & Automation Engineer",
       tagline,
       email: info.email,
       phone: info.phone,
@@ -259,12 +254,13 @@ export function buildPublicCv(raw, baselinePath, options = {}) {
       website: info.website,
       github: baseline.personal_info.github,
       photo: baseline.personal_info.photo,
+      pdf_url: baseline.personal_info.pdf_url,
     },
     summary,
     highlights,
     experience,
     projects: featured,
-    other_work: baseline.other_work,
+    other_work: baseline.other_work ?? [],
     skill_groups: buildSkillGroups(raw.hard_skills),
     languages: raw.languages ?? [],
     education: (raw.education ?? []).map((ed) => ({

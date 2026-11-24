@@ -1,4 +1,4 @@
-/** Shared numeric tokens for cross-section dedupe (highlights vs summary vs bullets). */
+/** Shared numeric tokens for cross-section dedupe helpers. */
 export function extractMetricTokens(text) {
   if (!text) return [];
   const s = String(text).toLowerCase();
@@ -34,46 +34,28 @@ export function sentenceOverlapsHighlights(sentence, highlights) {
   return false;
 }
 
-export function projectCorpus(project) {
-  return [project.title, project.problem, project.built, ...(project.impact ?? [])]
-    .join(" ")
-    .toLowerCase();
-}
+/**
+ * Keep each role's full chronological narrative intact while removing exact
+ * or near-exact duplicate bullets across roles.
+ */
+export function dedupeExperienceBullets(experience) {
+  const seen = new Set();
 
-function redundancyScore(bullet, highlights, corpora) {
-  let score = 0;
-  if (sentenceOverlapsHighlights(bullet, highlights)) score += 12;
-  const b = String(bullet).toLowerCase();
-  const words = b.match(/\b[a-z0-9]{5,}\b/g) ?? [];
-  for (const corpus of corpora) {
-    const hits = words.filter((w) => corpus.includes(w));
-    score += hits.length;
-  }
-  return score;
-}
-
-/** Drop experience bullets that restate featured projects or highlight metrics. */
-export function dedupeExperienceBullets(experience, featuredProjects, highlights = []) {
-  const corpora = (featuredProjects ?? []).map(projectCorpus);
-  const maxScore = 8;
-
-  return (experience ?? []).map((role) => {
-    const original = role.bullets ?? [];
-    let bullets = original.filter(
-      (b) =>
-        !sentenceOverlapsHighlights(b, highlights) &&
-        redundancyScore(b, highlights, corpora) <= maxScore,
-    );
-
-    if (bullets.length === 0 && original.length > 0) {
-      const ranked = original
-        .filter((b) => !sentenceOverlapsHighlights(b, highlights))
-        .sort(
-          (a, b) => redundancyScore(a, highlights, corpora) - redundancyScore(b, highlights, corpora),
-        );
-      bullets = ranked.length ? [ranked[0]] : [];
+  return (experience ?? []).map((role, index) => {
+    const cap = index === 0 ? 5 : 4;
+    const bullets = [];
+    for (const b of role.bullets ?? []) {
+      const key = String(b)
+        .toLowerCase()
+        .replace(/[^a-z0-9\s]/g, "")
+        .replace(/\s+/g, " ")
+        .trim()
+        .slice(0, 72);
+      if (!key || seen.has(key)) continue;
+      seen.add(key);
+      bullets.push(b);
+      if (bullets.length >= cap) break;
     }
-
-    return { ...role, bullets: bullets.slice(0, 4) };
+    return { ...role, bullets };
   });
 }

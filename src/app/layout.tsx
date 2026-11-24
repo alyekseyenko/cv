@@ -19,9 +19,15 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Vadym Alyekseyenko · CV",
+  title: "Vadym Alyekseyenko · Applied AI & Automation Engineer",
   description:
-    "Digital Transformation Lead & AI/Automation Engineer. Portfolio CV.",
+    "Applied AI & Automation Engineer. Governed ERP read replicas, dbt semantic layers, read-only MCP tools, n8n workflows, and production web apps. Remote EU / US.",
+  openGraph: {
+    title: "Vadym Alyekseyenko · Applied AI & Automation Engineer",
+    description:
+      "Production ERP data platforms, AI workflows, CRM systems, and field apps. 5M+ governed rows, 80+ production workflows, open-source builds.",
+    type: "profile",
+  },
 };
 
 export default function RootLayout({

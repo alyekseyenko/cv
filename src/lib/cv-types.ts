@@ -8,6 +8,7 @@ export type PersonalInfo = {
   website: string;
   github?: string;
   photo?: string;
+  pdf_url?: string;
 };
 
 export type Highlight = { label: string; value: string };

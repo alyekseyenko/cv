@@ -1,43 +1,40 @@
 {
   "personal_info": {
     "name": "Vadym Alyekseyenko",
-    "title": "Digital Transformation Lead · AI & Automation Engineer",
-    "tagline": "I own production systems for a four-brand group—ERP data, CRM, field apps, and automation—working directly with owners on ROI and delivery. Remote EU / US.",
+    "title": "Applied AI & Automation Engineer",
+    "tagline": "I design, build, and operate production ERP data platforms, AI workflows, CRM systems, and field apps for a four-brand industrial group—working directly with leadership from business question to production. Remote EU / US.",
     "email": "vadymalyekseyenko@gmail.com",
     "phone": "+351910799500",
-    "location": "Portugal · remote (EU / US)",
+    "location": "Portugal · Remote (EU / US contractor)",
     "website": "https://www.linkedin.com/in/vadym-alyekseyenko-0113b11b0/",
     "github": "https://github.com/alyekseyenko",
-    "photo": "/profile.jpeg"
+    "photo": "/profile.jpeg",
+    "pdf_url": "/Vadym_Alyekseyenko_CV.pdf"
   },
-  "summary": "Digital Transformation Lead and AI/Automation Engineer with 6+ years owning architecture, governed data platforms, and production automation across a four-brand industrial group (HABITARMOS / ESTORESRAINHA). Sole hands-on technology owner—architecture, build, and ops—with leadership on ROI (self-hosted stack and FinOps, not SaaS sprawl).",
+  "summary": "Applied AI and automation engineer. For six years I have designed, built, and operated the production systems of a four-brand industrial group (HABITARMOS / ESTORESRAINHA): ERP data, CRM, field app, quoting, and 80+ workflows. I ship the code myself, review junior and design work before release, and coach ~40 operators on the tools. Freelance practice ALYGEN: €20k+ closed after automated audits of 6,000+ companies. I partner directly with leadership to turn business questions into governed numbers—visibility on revenue, debt, stock, customers, and feedback—on a lean self-hosted stack.",
   "highlights": [
     {
-      "label": "Production workflows (n8n, 7 days)",
-      "value": "~22.5k runs"
+      "label": "Governed ERP read replica (15-min sync)",
+      "value": "5M+ rows"
     },
     {
-      "label": "Governed ERP replica (Postgres)",
-      "value": "5.4M rows"
+      "label": "Production workflows (~22.5k n8n/week)",
+      "value": "80+"
     },
     {
-      "label": "Field & ops app (daily users)",
-      "value": "40"
+      "label": "Saved across 55 Innovation Hub builds",
+      "value": "~465h/mo"
     },
     {
-      "label": "Customers on CRM & service stack",
-      "value": "15k+"
+      "label": "Deterministic quoting tiers (20+ suppliers)",
+      "value": "124k+"
     },
     {
-      "label": "Distributor commercial network (PHC-backed)",
-      "value": "500+"
+      "label": "Field & ops PWA in daily production",
+      "value": "~20 people"
     },
     {
-      "label": "Automation portfolio hours saved",
-      "value": "~465/mo"
-    },
-    {
-      "label": "Freelance B2B revenue closed (ALYGEN)",
+      "label": "Freelance B2B closed (6,000+ audits)",
       "value": "€20k+"
     }
   ],
@@ -48,7 +45,11 @@
       "role": "Digital Transformation Lead & AI/Automation Engineer",
       "period": "Jan 2026 · Present",
       "bullets": [
-        "Built the HABITAI operations cockpit across four brands: read-only MCP agent orchestration, multimodal RAG (Docling, ColPali, Qdrant), predictive inventory, Distribution 360, and executive KPI dashboards."
+        "Architected a production PHC ERP cloud read replica (5M+ rows across 46 allowlisted tables in two company schemas, 15-min incremental sync, 99.1% uptime) with dbt semantic marts, Metabase executive dashboards, and read-only MCP metric tools so leadership and CRM run on governed data instead of on-prem SQL.",
+        "Built the HABITAI operations cockpit across four brands: read-only MCP agent orchestration, multimodal RAG (Docling, ColPali, Qdrant), predictive inventory, Distribution 360, and executive KPI dashboards.",
+        "Scaled 80+ production workflows (n8n, Zoho Flow, Make.com) to ~22.5k n8n runs per week and ~4k Zoho Flow runs per month for ERP-CRM sync, operational alerts, and automated failure monitoring.",
+        "Founded and run the 55-project Innovation Hub (~465h/month saved, ~28-day average delivery), prioritizing and shipping internal automations across commercial, warehouse, accounting, and marketing (including carrier alerts, marketing Kanban sync, and order-to-CRM intake).",
+        "I design and ship the production systems myself. I review junior developer and design work before release, and I coach ~40 people in sales, warehouse, and operations on CRM, BI, and the daily tools."
       ]
     },
     {
@@ -57,6 +58,9 @@
       "role": "Senior AI Systems and Automation Engineer",
       "period": "Jan 2024 · Dec 2025",
       "bullets": [
+        "Built ZohoSync (PHC SQL Server to Zoho Bigin EU) for 500+ distributors: synced 893 accounts, 2,405 contacts, and ~2k pipeline records so reps track targets, gap-to-goal, and stalled deals live.",
+        "Led ESTORESRAINHA digital turnaround for 15k+ customers (~11.4k migrated into Twenty CRM with NIF deduplication): replaced paper workflows with automated scheduling, catalog sync, service tracking, and agent-assisted CRM ingestion.",
+        "Shipped and extended app-tecnicos (https://github.com/alyekseyenko/services-blinds), an offline-first field operations PWA (Dexie sync, Twenty CRM GraphQL, transactional outbox, PDF/XLSX measurements, on-site repair payments, CEO metrics, HMAC customer rating) in production for ~20 people with 640+ Vitest tests.",
         "Engineered the orcamentos-ia quoting platform (FastAPI, React): 124k+ deterministic pricing tiers across 20+ supplier price-list plug-ins with Docling/Celery PDF ingestion, cutting multi-brand quote turnaround from days to minutes with zero price hallucination."
       ]
     },
@@ -66,6 +70,7 @@
       "role": "Software and Automation Developer",
       "period": "Jul 2020 · Dec 2023",
       "bullets": [
+        "Built the group's web footprint from zero across 4 brands: corporate sites habitarmos.com and estoresrainha.com (custom HTML/CSS) and high-traffic catalog properties arkitek.pt and skuba.com.pt (WordPress), scaling ARKITEK/SKUBA to 15k+ combined monthly visits through technical SEO and catalog storytelling.",
         "Automated product visual generation with custom Stable Diffusion SDXL LoRAs via ComfyUI and built multimodal computer-vision pipelines for SKU matching and catalog synchronization."
       ]
     },
@@ -75,44 +80,24 @@
       "role": "Freelance B2B Automation & Digital Services Consultant",
       "period": "2021 · Present",
       "bullets": [
-        "Built Alygen CRM (open source): automated technical audits, ML lead scoring, and agent-assisted outreach across email and messaging."
+        "Run ALYGEN, the trading name for my freelance B2B services (web, automation, and digital operations for SMBs): closed €20k+ in client work after prospecting 6,000+ companies with automated audits.",
+        "Built Alygen CRM, my own sales tool (https://github.com/alyekseyenko/alygen), scaling outreach from ~4 to ~200 leads/day with sub-3-minute proposals via Chromium audits, ML lead scoring, and multi-agent Email, WhatsApp, and Telegram dispatch (React, Node.js, FastAPI, PostgreSQL/pgvector).",
+        "Long-term e-commerce and events client: three production sites from zero, inbound leads from ~2/week to ~5-10/day, with e-commerce and event ticketing still running after 3+ years."
       ]
     }
   ],
   "projects": [
     {
-      "id": "habitai_unified_platform",
-      "title": "HABITAI · Unified Operations Platform",
-      "period": "2023 · Present",
-      "company": "HABITARMOS / ESTORESRAINHA GROUP",
-      "problem": "Operations data lived in ERP, CRM, logistics, and spreadsheets with no single place for owners or field teams to act.",
-      "built": "Operations cockpit tying PHC data, CRM sync, automation, inventory signals, and agent-assisted Q&A on governed metrics.",
-      "impact": [
-        "80+ production workflows (~22.5k n8n runs in a recent 7-day sample)",
-        "MCP read-only ERP Q&A with per-call audit logging",
-        "Single nervous system for warehouses, distributors, finance, and field ops"
-      ],
-      "tech": [
-        "FastAPI",
-        "React",
-        "n8n",
-        "PostgreSQL",
-        "MCP",
-        "LangGraph"
-      ]
-    },
-    {
       "id": "phc_cloud_data_platform_elt",
-      "title": "PHC ERP · Cloud Read Replica",
+      "title": "PHC ERP · Cloud Read Replica & Semantic Layer",
       "period": "2025-2026",
       "company": "HABITARMOS / ESTORESRAINHA GROUP",
-      "link": "https://github.com/alyekseyenko/habitarmos-phc-replica",
-      "problem": "CRM and automations could not safely use live ERP data without exposing on-prem SQL or copying numbers by hand.",
-      "built": "Hybrid sync to PostgreSQL on a VPS, dbt marts, role-scoped access, and executive dashboards for two PHC tenants.",
+      "problem": "Two companies ran on separate on-prem ERP databases and Excel—CRM, automation, and leadership had no single trusted view of revenue, debt, stock, or customers.",
+      "built": "Outbound-only Python incremental sync into PostgreSQL, dbt semantic marts (67 models, 114 tests), Metabase executive dashboards, and read-only MCP metric tools.",
       "impact": [
-        "5.4M+ governed rows across HabitArmos and Estores tenants",
-        "15-minute incremental sync; ~11k Estores customers mapped to Twenty CRM",
-        "Read-only MCP metric catalog with regression-tested definitions"
+        "5M+ rows across 46 allowlisted tables on a 15-minute incremental cadence (99.1% 7-day sync success)",
+        "Single reconciled metrics catalog with daily ERP checks and a 49-question regression suite (unaudited revenue visibility; accountant sign-off pending)",
+        "Decoupled ~11.4k CRM customer migrations and executive BI from on-prem SQL Server"
       ],
       "tech": [
         "Python",
@@ -120,20 +105,85 @@
         "dbt",
         "SQL Server",
         "Metabase",
+        "MCP",
         "Docker"
       ]
     },
     {
-      "id": "zohosync_habitarmos",
-      "title": "ZohoSync · PHC ↔ Zoho Commercial Intelligence",
+      "id": "habitai_unified_platform",
+      "title": "HABITAI · Unified Operations Cockpit",
       "period": "2023 · Present",
       "company": "HABITARMOS / ESTORESRAINHA GROUP",
-      "problem": "Sales leadership relied on disconnected spreadsheets instead of live ERP-backed objectives and pipeline health.",
-      "built": "FastAPI/Redis incremental bridge from PHC to Zoho Bigin with rep KPIs, distributor analytics, and HABITAI consult views.",
+      "problem": "Operational data lived across ERP, CRM, logistics, and spreadsheets with no shared cockpit for owners or commercial teams.",
+      "built": "Multi-brand Next.js and FastAPI cockpit unifying governed ERP metrics, read-only MCP Q&A, multimodal technical RAG, Distribution 360, debt auditing, and predictive inventory.",
       "impact": [
-        "893 Bigin accounts / 2,405 contacts / ~2k pipeline records (Oct 2026)",
-        "500+ distributor network on PHC-backed gap-to-target coaching",
-        "Feeds Gestão de Comerciais and MCP ERP Q&A"
+        "Read-only MCP orchestration over governed dbt marts so leadership queries live KPIs safely",
+        "Multimodal RAG pipeline (Docling, ColPali, Qdrant, BGE/Jina rerankers) for technical product consultation",
+        "Distribution 360, debt investigator, and predictive inventory over ~7.1k active SKUs by unit of measure"
+      ],
+      "tech": [
+        "Next.js",
+        "FastAPI",
+        "Python",
+        "MCP",
+        "Docling",
+        "Qdrant"
+      ]
+    },
+    {
+      "id": "blinds_field_ops_pwa",
+      "title": "app-tecnicos · Field Operations PWA",
+      "period": "2024 · Present",
+      "company": "HABITARMOS / ESTORESRAINHA GROUP",
+      "link": "https://github.com/alyekseyenko/services-blinds",
+      "problem": "Field installation and warehouse prep ran on WhatsApp, spreadsheets, and phone calls with no live visit state when customers called.",
+      "built": "Offline-first Next.js PWA with Dexie IndexedDB sync, transactional outbox, Twenty CRM GraphQL contract layer, PDF/XLSX measurements, CEO metrics, and HMAC customer rating portals.",
+      "impact": [
+        "In daily production for ~20 people across field, warehouse, dispatch, and management",
+        "640+ Vitest unit tests, Playwright smoke E2E, GitHub Actions CI, and a 600-line file-size ratchet (zero god files)",
+        "Offline capture survives dead zones and reconciles cleanly to Twenty CRM without duplicate writes"
+      ],
+      "tech": [
+        "Next.js",
+        "TypeScript",
+        "Dexie",
+        "Twenty CRM",
+        "GraphQL",
+        "Vitest"
+      ]
+    },
+    {
+      "id": "orcamentos_ia_platform",
+      "title": "orcamentos-ia · Multi-Supplier Quoting Core",
+      "period": "2024 · Present",
+      "company": "HABITARMOS / ESTORESRAINHA GROUP",
+      "problem": "Multi-brand quoting relied on manual PDF and spreadsheet lookup across 20+ suppliers—sales and technicians waited days while unit prices had to stay auditable.",
+      "built": "Modular FastAPI and React platform with per-supplier pricing plug-ins, Docling/Celery PDF ingestion, deterministic width×height pricing, and tool-only LLM line-item assistance.",
+      "impact": [
+        "124k+ deterministic pricing tiers across 20+ supplier catalogs with zero price hallucination",
+        "Collapsed quote turnaround from days to minutes with frozen, auditable unit prices per proposal",
+        "Writes proposals directly into Twenty CRM alongside measurements from the field PWA"
+      ],
+      "tech": [
+        "FastAPI",
+        "React",
+        "Python",
+        "PostgreSQL",
+        "Celery",
+        "Docling"
+      ]
+    },
+    {
+      "id": "zohosync_habitarmos",
+      "title": "ZohoSync · ERP-to-CRM Commercial Intelligence",
+      "period": "2023 · Present",
+      "company": "HABITARMOS / ESTORESRAINHA GROUP",
+      "problem": "Commercial leadership tracked a 500+ distributor network on disconnected spreadsheets instead of live ERP-backed objectives and stalled-deal signals.",
+      "built": "FastAPI and Redis incremental bridge syncing PHC SQL Server into Zoho Bigin EU with live rep KPIs, gap-to-target tracking, and geospatial distributor analytics.",
+      "impact": [
+        "Synced 893 accounts, 2,405 contacts, and ~2k pipeline records for live commercial tracking",
+        "Surfaces gap-to-target, stalled deals, and at-risk accounts across 500+ distributors",
+        "Feeds HABITAI commercial coaching views and executive reporting"
       ],
       "tech": [
         "FastAPI",
@@ -145,108 +195,46 @@
       ]
     },
     {
-      "id": "blinds_field_ops_pwa",
-      "title": "app-tecnicos · Field Operations PWA",
-      "period": "2024 · Present",
-      "company": "HABITARMOS / ESTORESRAINHA GROUP",
-      "link": "https://github.com/alyekseyenko/services-blinds",
-      "problem": "Field service ran on paper: slow customer updates, lost technician time, and no shared schedule when clients called.",
-      "built": "Production PWA with offline queue, maps and routing, warehouse module, and Twenty CRM sync on Hetzner.",
-      "impact": [
-        "~40 technicians use the app daily in production",
-        "Offline-first queue for visits, photos, and status updates",
-        "Twenty CRM sync replaces manual dispatch spreadsheets"
-      ],
-      "tech": [
-        "React",
-        "PWA",
-        "Twenty CRM",
-        "GraphQL",
-        "Hetzner",
-        "Docker"
-      ]
-    },
-    {
-      "id": "orcamentos_ia_platform",
-      "title": "orcamentos-ia · Multi-Supplier Quoting",
-      "period": "2024 · Present",
-      "company": "HABITARMOS / ESTORESRAINHA GROUP",
-      "problem": "Quotes depended on manual PDF and spreadsheet work; sales waited days while prices had to stay auditable.",
-      "built": "FastAPI and React platform with supplier plug-ins, deterministic pricing tiers, PDF ingestion, and CRM handoff.",
-      "impact": [
-        "124k+ deterministic price tiers in the catalog",
-        "Supplier plug-ins and PDF ingestion cut quote turnaround",
-        "Auditable pricing path from supplier data to CRM"
-      ],
-      "tech": [
-        "FastAPI",
-        "React",
-        "Python",
-        "PostgreSQL",
-        "PDF ingestion"
-      ]
-    },
-    {
-      "id": "habitarmos_innovation_hub",
-      "title": "Innovation Hub · Digital Transformation Control Tower",
-      "period": "2024 · Present",
-      "company": "HABITARMOS / ESTORESRAINHA GROUP",
-      "problem": "Central governance layer for HABITARMOS GROUP multi-brand transformation (HABITARMOS, ESTORESRAINHA, ARKITEK, SKUBA).",
-      "built": "Owner & lead · portfolio PMO, FinOps, architecture board, marketing squad (UX/UI, multimedia design, 2 junior devs), and primary implementer for top-priority initiatives",
-      "impact": [
-        "55 projects in managed pipeline; ~465 hours saved per month across completed automations",
-        "~210 €/h efficiency metric (annual value per dev hour) · proves lean build vs. opportunity cost of backlog",
-        "Aligns commercial, warehouse, design, accounting, and dev departments on one innovation roadmap"
-      ],
-      "tech": [
-        "department tagging",
-        "n8n",
-        "Twenty CRM",
-        "Zoho Bigin",
-        "PHC ERP bridges",
-        "Next.js apps"
-      ]
-    },
-    {
-      "id": "alygen_crm_b2b",
-      "title": "Alygen CRM · B2B Outreach Stack",
-      "period": "Jan 2025 · Present",
-      "company": "ALYGEN (freelance B2B practice)",
-      "link": "https://github.com/alyekseyenko/alygen",
-      "problem": "Freelance prospecting meant hours of manual site audits and slow, generic proposals per lead.",
-      "built": "Open-source CRM with automated technical audits, ML lead scoring, agent-assisted copy, and email and messaging dispatch.",
-      "impact": [
-        "6,000+ B2B companies audited with automated technical scoring",
-        "Agent-assisted proposals and outreach from structured lead data",
-        "Open-source stack for portfolio and live client work"
-      ],
-      "tech": [
-        "Python",
-        "FastAPI",
-        "React",
-        "ML scoring",
-        "Playwright"
-      ]
-    },
-    {
       "id": "container_risk_radar_habitarmos",
       "title": "Container Risk Radar · Fleet Observability",
       "period": "Jan 2026 · Present",
       "company": "HABITARMOS / ESTORESRAINHA GROUP",
-      "problem": "Websites, VPS hosts, containers, and automations were monitored in separate tools with no shared risk picture.",
-      "built": "Docker Compose observability stack with Prometheus, Loki, Grafana, scoring engine, and a Next.js control dashboard.",
+      "problem": "Multi-brand websites, containers, hosts, and 80+ workflows were monitored across separate tools, turning incident triage into manual log hunting.",
+      "built": "Docker Compose observability stack with Prometheus, Loki, Grafana Alloy, Alertmanager, a Python YAML-weighted risk engine, and a Next.js SSE dashboard.",
       "impact": [
-        "Unified risk score across n8n, VPS, cPanel, and container workloads",
-        "Telegram/Slack alerting when sync or infra signals degrade",
-        "Next.js dashboard with live SSE updates for triage"
+        "Computes an explainable per-container risk score (0.0-1.0) across containers, hosts, and n8n workflows",
+        "Routes live degradation and sync-failure alerts directly to Slack and Telegram",
+        "Replaced manual multi-tool checks with one operational view for early failure detection"
       ],
       "tech": [
         "Prometheus",
         "Grafana",
         "Loki",
+        "Python",
         "Next.js",
-        "Docker Compose",
-        "Python"
+        "Docker Compose"
+      ]
+    },
+    {
+      "id": "alygen_crm_b2b",
+      "title": "Alygen CRM · B2B Audit & Outreach Engine",
+      "period": "Jan 2025 · Present",
+      "company": "ALYGEN (freelance B2B practice)",
+      "link": "https://github.com/alyekseyenko/alygen",
+      "problem": "Manual B2B prospecting took ~2 hours per company for technical site checks, competitor research, and tailored Portuguese proposals.",
+      "built": "Open-source polyglot CRM (React, Node.js Express, Python FastAPI, PostgreSQL/pgvector, SQLite WAL failover) with 12+ Chromium audits, RandomForest scoring, and multi-channel dispatch.",
+      "impact": [
+        "Closed €20k+ in freelance B2B work after prospecting and auditing 6,000+ SMBs",
+        "Scaled outreach from ~4 to ~200 leads/day with localized proposals generated in under 3 minutes",
+        "Backed by 65+ automated tests (Vitest, Pytest) and GitHub Actions CI"
+      ],
+      "tech": [
+        "React",
+        "Node.js",
+        "FastAPI",
+        "PostgreSQL",
+        "pgvector",
+        "n8n"
       ]
     },
     {
@@ -255,255 +243,56 @@
       "period": "Oct 2025 · Present",
       "company": "Independent / Portfolio (community ops)",
       "link": "https://github.com/alyekseyenko/lfgbot",
-      "problem": "A ~13k-member Valorant guild relied on manual chat codes; matchmaking did not scale and moderators lacked structure.",
-      "built": "Open-source bot + FastAPI API + React OAuth PWA with Postgres lobbies, gamification, and guild analytics on Hetzner.",
+      "problem": "Portugal's largest Valorant LFG guild (~13k members) coordinated matches via manual chat codes that broke down at peak load.",
+      "built": "Open-source Discord bot, FastAPI backend, PostgreSQL lobby state machine, gamification layer, and React OAuth PWA with GDPR self-erasure.",
       "impact": [
-        "4,186 LFG requests and 4,186 weekly active users in 7 days (Oct 2026)",
-        "~1k messages/day and ~+35% activity in the first weekend after NPVP migration",
-        "380k+ lifetime structured LFG requests tracked (legacy + bot)"
+        "4,186 structured LFG requests created per week in production (~13k members, ~11.9k peak online)",
+        "380k+ lifetime LFG requests tracked with ~+35% higher channel activity after migration",
+        "Containerized with Docker Compose and automated CI (pytest, ruff, mypy)"
       ],
       "tech": [
         "Python",
         "FastAPI",
         "PostgreSQL",
         "React",
-        "Docker",
-        "Discord OAuth"
-      ]
-    },
-    {
-      "id": "habitarmos_multibrand_websites",
-      "title": "HABITARMOS GROUP · Corporate & Brand Websites",
-      "period": "2020 · Present",
-      "company": "HABITARMOS / ESTORESRAINHA GROUP",
-      "problem": "Early tenure: brands had little or no usable web presence.",
-      "built": "Builder & maintainer · UX with marketing/design squad, SEO, hosting, incremental updates",
-      "impact": [
-        "ARKITEK + SKUBA brand sites: 15k+ monthly visits today (from near-zero when I started)",
-        "Four-property web footprint supporting distributors and end customers across the group"
-      ],
-      "tech": []
-    },
-    {
-      "id": "rute_carreira_digital_platform",
-      "title": "Rute Carreira · Coaching & Wellness Digital Transformation",
-      "period": "2021 · Present",
-      "company": "ALYGEN (freelance B2B practice) · client Rute Carreira",
-      "problem": "Long-term freelance client (Rute C.): started with no website at all.",
-      "built": "Solo transformation partner · strategy, WordPress/WooCommerce, custom plugins, SEO, ticketing, hosting, and continuous optimization",
-      "impact": [
-        "Client went from zero web to three revenue-supporting properties",
-        "oseuplanob.com: ~2 leads/week → ~5-10 leads/day",
-        "Product revenue via asuaessencia.com; recurring luxury event ticket sales ~3 years"
-      ],
-      "tech": [
-        "WordPress",
-        "custom PHP plugins",
-        "WooCommerce",
-        "Technical SEO",
-        "conversion-focused IA",
-        "lead capture flows"
-      ]
-    },
-    {
-      "id": "linkedin_jobfinder_scout",
-      "title": "LinkedIn Jobfinder Scout · Agentic Career Intelligence (Portfolio)",
-      "period": "2025 · Present",
-      "company": "Independent / Portfolio (ALYGEN ecosystem)",
-      "link": "https://github.com/alyekseyenko/linkedin-jobfinder-scout",
-      "problem": "Open-source R&D showcase (this repo): dual-memory neural architecture (candidate CV vs.",
-      "built": "Solo architect & engineer · full stack, agents, observability (OTLP/Phoenix), Docker microservices",
-      "impact": [
-        "Demonstrates end-to-end agentic system design for recruiters and technical interviews",
-        "Structured CV/KB ingestion powers consistent ATS and match scoring from real profile data",
-        "Demo mode runs full UI without API keys for portfolio walkthroughs"
-      ],
-      "tech": [
-        "React 19",
-        "TypeScript",
-        "Three.js",
-        "Vite",
-        "Pipeline Kanban",
-        "MyCV / ATS export"
-      ]
-    },
-    {
-      "id": "praxis_alygen_harness",
-      "title": "Praxis · Evaluation-First Autonomous Coding Harness (Alpha Test)",
-      "period": "2025 · Present",
-      "company": "ALYGEN (R&D)",
-      "link": "https://github.com/alyekseyenko/praxis-alygen",
-      "problem": "ALYGEN R&D experiment (https://github.com/alyekseyenko/praxis-alygen): I tested whether coding agents can run safely in disposable Docker sandboxes with deterministic pytest/compiler gates, Langfuse/OpenTelemetry observability, human git-diff approval in Mission Control (React 19), and pgvector instincts from approved changes.",
-      "built": "Solo builder · harness design, sandbox security model, MCP/Antigravity integration",
-      "impact": [
-        "Runs coding agents inside disposable Docker sandboxes with deterministic pytest/compiler gates so agents never self-grade",
-        "Mission Control UI (React 19) enforces human git-diff approval with pgvector instinct memory and Langfuse/OpenTelemetry traces",
-        "Instinct memory reduces repeated architectural mistakes across tasks"
-      ],
-      "tech": [
-        "Docker sandboxes",
-        "deterministic evaluation gates",
-        "HITL sign-off",
-        "Context guard / tool compactor",
-        "FastAPI",
-        "React 19"
-      ]
-    },
-    {
-      "id": "sentinel_v2_portfolio",
-      "title": "SENTINEL v2.3 · Multi-Agent Supply Chain Defense (Portfolio Case Study)",
-      "period": "May 2025 · Present",
-      "company": "ALYGEN (Portfolio / R&D)",
-      "link": "https://github.com/alyekseyenko",
-      "problem": "ALYGEN portfolio case study (May 2025): I designed and documented Sentinel v2.3 · an antifragile AI swarm for high-risk logistics and crisis-style orchestration.",
-      "built": "Solo architect & author · systems design, agent governance model, portfolio write-up",
-      "impact": [
-        "Published end-to-end case study with architecture diagrams (1M-user scale target, incident response flows, crypto/data lineage)",
-        "Documented governance stack preventing unconstrained agentic changes"
-      ],
-      "tech": [
-        "LangGraph",
-        "Spec-Driven Development (.specify)",
-        "Utility-per-token FinOps",
-        "Semantic cache",
-        "Local triage (Ollama)",
-        "Python FastAPI"
-      ]
-    },
-    {
-      "id": "optional_client_websites",
-      "title": "Additional client websites (supplementary)",
-      "period": "Freelance",
-      "company": "Various clients",
-      "problem": "Optional portfolio note: delivered web properties for other clients · categoryweek.com (project site) and revigomes.pt.",
-      "built": "Web delivery (as needed)",
-      "impact": [
-        "Published client-facing sites"
-      ],
-      "tech": []
-    },
-    {
-      "id": "casa_home_os",
-      "title": "Casa · self-hosted home OS (energy, automation, family ops)",
-      "period": "2024 · Present",
-      "company": "Personal / Independent",
-      "problem": "Personal 24/7 Linux host: Home Assistant as the single control plane for a house that paid kWh and contracted power without a production curve, and ran family ops (meals, documents, photos, cinema, calendar) in one person's head.",
-      "built": "Architect & operator · instrumentation, Docker Compose, automations, family product adoption",
-      "impact": [
-        "Closed the 'two years of unmetered PV' gap: production/import/export enter the same control plane as named loads",
-        "Surplus→DHW loop designed so the tank does not heat from the grid on guesswork; €/month TBD after Energy + invoices",
-        "Household uses the ops apps (meals, docs, photos, cinema, calendar) · adoption is the success bar"
-      ],
-      "tech": [
-        "Home Assistant",
         "Docker Compose",
-        "Linux",
-        "AdGuard Home",
-        "Shelly energy monitor / relays",
-        "temperature probe on DHW"
+        "OAuth2"
       ]
-    },
-    {
-      "id": "habitai_enterprise_platform",
-      "title": "HABITAI: Enterprise Agentic Platform",
-      "problem": "An enterprise agentic platform featuring custom MCP servers and Zero‑Trust CQRS read store decoupling SQL execution.",
-      "built": "",
-      "impact": [
-        "90% reduction in schema lookup latency",
-        "<0.8% hallucination rate validated via RAGAS"
-      ],
-      "tech": []
-    },
-    {
-      "id": "habitarmos_automation_portfolio",
-      "title": "HABITARMOS 75+ Workflow Ecosystem",
-      "problem": "An ecosystem of 75+ production workflows processing 625K+ executions/year with self‑healing recovery.",
-      "built": "",
-      "impact": [
-        "2409% portfolio ROI with €814K annual pipeline value",
-        "Reclaimed ~396h/month across 33‑person organization"
-      ],
-      "tech": []
-    },
-    {
-      "id": "alygen_crm_pipeline",
-      "title": "Alygen CRM: Multi‑Agent Lead Scoring",
-      "problem": "A multi‑agent AI pipeline combining website audits, ML lead scoring, and automated PT‑PT proposal generation.",
-      "built": "",
-      "impact": [
-        "Surfaced €6M in revenue potential",
-        "Converted €12K in closed pipeline within 7 days"
-      ],
-      "tech": []
-    },
-    {
-      "id": "linkedin_neural_scout",
-      "title": "LinkedIn Neural Scout",
-      "problem": "A 6‑agent LangGraph swarm with dual‑memory system and LightRAG‑hku graph retrieval bypassing anti‑bot protection.",
-      "built": "",
-      "impact": [
-        "98% match precision",
-        "Full OTLP tracing on 6‑container microservices stack"
-      ],
-      "tech": []
-    },
-    {
-      "id": "ai_pricing_etl_pipeline",
-      "title": "Async AI/ETL Pricing Pipeline",
-      "problem": "An async pricing pipeline parsing 200K+ SKUs from nested tables using Vertex AI/Gemini.",
-      "built": "",
-      "impact": [
-        "Cut quote turnaround from 3 days to <1 minute",
-        "Reduced catalog processing costs to <$0.15"
-      ],
-      "tech": []
-    },
-    {
-      "id": "ai_3d_render_automation_habitarmos",
-      "title": "AI 3D Render & ComfyUI Automation",
-      "problem": "Automated product image generation by fine‑tuning Stable Diffusion SDXL LoRAs via ComfyUI.",
-      "built": "",
-      "impact": [
-        "Scaled visual output 8x to 50+ monthly scenes",
-        "Eliminated manual rendering bottlenecks"
-      ],
-      "tech": []
-    },
-    {
-      "id": "estores_rainha_digital_transformation",
-      "title": "Estores Rainha Digital Transformation Suite",
-      "problem": "End‑to‑end modernization of Estores Rainha operations: Twenty CRM, custom app‑tecnicos PWA, PHC read replica, dbt‑powered data marts, Metabase dashboards, and automated quoting workflows.",
-      "built": "",
-      "impact": [
-        "Migrated 40 daily field technicians from paper to digital workflow",
-        "Implemented PHC replica delivering real‑time metrics and contributing to 2x revenue growth for HabitArmos",
-        "Reduced manual reporting effort by ~400h/month"
-      ],
-      "tech": []
-    },
-    {
-      "id": "app_tecnicos_field_pwa",
-      "title": "app-tecnicos field operations PWA (services-blinds)",
-      "problem": "Production field PWA for Estores Rainha on Hetzner.",
-      "built": "Operations system of record on Twenty CRM: agenda, millimetre measurements, warehouse prep, visit close, CEO metrics, HMAC customer rating.",
-      "impact": [
-        "Public README 2026-11-20: about 20 people in production (earlier internal count about 40 daily users)",
-        "640+ Vitest tests, Playwright smoke, GitHub Actions",
-        "600-line CI ratchet: god files split from 7 to 0"
-      ],
-      "tech": []
     }
   ],
-  "other_work": [],
+  "other_work": [
+    {
+      "id": "innovation-hub",
+      "title": "Innovation Hub · Internal Automation Portfolio",
+      "summary": "55 internal initiatives prioritized directly with leadership by ROI and payback (~465h/month saved, ~28-day average delivery) across commercial, warehouse, accounting, and marketing (carrier alerts, marketing Kanban sync, order-to-CRM intake)."
+    },
+    {
+      "id": "praxis",
+      "title": "Praxis · Evaluation-First Coding Harness (Alpha)",
+      "link": "https://github.com/alyekseyenko/praxis-alygen",
+      "summary": "R&D harness running coding agents inside disposable Docker sandboxes with deterministic pytest/compiler gates, human git-diff approval in Mission Control (React 19), Langfuse/OpenTelemetry traces, and pgvector instinct memory. Transparent alpha lab."
+    },
+    {
+      "id": "jobfinder-scout",
+      "title": "LinkedIn Jobfinder Scout · Agentic Career Intelligence (Open Source)",
+      "link": "https://github.com/alyekseyenko/linkedin-jobfinder-scout",
+      "summary": "Dual-memory system (pgvector/Qdrant) with LangGraph/CrewAI agents, structured CV ingestion, transparent skill-overlap matching, and 2-page ATS PDF export."
+    },
+    {
+      "id": "casa-home-os",
+      "title": "Casa · Self-Hosted Home OS (Personal Lab)",
+      "summary": "Single 24/7 Linux server (Docker Compose, LAN-only—separate from employer infrastructure): Home Assistant control plane, dual-channel panel metering for previously unmetered PV, surplus→DHW loop with tank probe and hysteresis (bill savings pending invoice validation), and household-adopted apps (Mealie, Paperless-ngx, Immich, Jellyfin, AdGuard)."
+    }
+  ],
   "skill_groups": {
     "AI": [
       "LangGraph",
       "Model Context Protocol (MCP)",
+      "Docling",
+      "Qdrant",
+      "ColPali",
       "Generative AI",
       "Machine Learning",
-      "Docling",
-      "CrewAI",
-      "Qdrant",
       "Vertex AI"
     ],
     "Engineering": [
@@ -513,8 +302,9 @@
       "React",
       "Next.js",
       "GraphQL",
-      "Playwright",
-      "Celery"
+      "Celery",
+      "Vitest",
+      "Playwright"
     ],
     "Data": [
       "PostgreSQL",
@@ -529,22 +319,23 @@
     "Cloud & Ops": [
       "Docker",
       "Docker Compose",
-      "Google Cloud Platform",
+      "Linux",
+      "GitHub Actions",
       "Hetzner Cloud",
+      "Google Cloud Platform",
       "Prometheus",
       "Grafana",
-      "GitHub Actions",
-      "Observability"
+      "Loki",
+      "Alertmanager"
     ],
     "Automation & CRM": [
       "n8n",
+      "Make.com",
       "Zoho Bigin",
       "Zoho Flow",
-      "Make.com",
       "Twenty CRM",
       "PHC ERP",
-      "Process Automation",
-      "WordPress"
+      "Process Automation"
     ]
   },
   "languages": [
@@ -589,15 +380,7 @@
       "issued": "2026"
     },
     {
-      "name": "Generative AI Leader",
-      "issuer": "Google Cloud"
-    },
-    {
-      "name": "Google Advanced Data Analytics",
-      "issuer": "Google"
-    },
-    {
-      "name": "Google UX Design",
+      "name": "Google Data Analytics",
       "issuer": "Google",
       "issued": "2025"
     },
