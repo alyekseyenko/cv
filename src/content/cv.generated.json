@@ -80,8 +80,7 @@
       "role": "Freelance B2B Automation & Digital Services Consultant",
       "period": "2021 · Present",
       "bullets": [
-        "Run ALYGEN, the trading name for my freelance B2B services (web, automation, and digital operations for SMBs): closed €20k+ in client work after prospecting 6,000+ companies with automated audits.",
-        "Built Alygen CRM, my own sales tool (https://github.com/alyekseyenko/alygen), scaling outreach from ~4 to ~200 leads/day with sub-3-minute proposals via Chromium audits, ML lead scoring, and multi-agent Email, WhatsApp, and Telegram dispatch (React, Node.js, FastAPI, PostgreSQL/pgvector).",
+        "Built Alygen CRM (https://github.com/alyekseyenko/alygen) for my B2B practice (React, Node.js, FastAPI, pgvector): Chromium audits, ML scoring, and multi-agent outreach scaled prospecting ~4 to ~200 leads/day (<3-min proposals), auditing 6,000+ SMBs and closing €20k+.",
         "Long-term e-commerce and events client: three production sites from zero, inbound leads from ~2/week to ~5-10/day, with e-commerce and event ticketing still running after 3+ years."
       ]
     }
