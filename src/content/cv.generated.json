@@ -10,7 +10,7 @@
     "github": "https://github.com/alyekseyenko",
     "photo": "/profile.jpeg"
   },
-  "summary": "Digital transformation and AI automation lead for HABITARMOS / ESTORESRAINHA GROUP (four brands): built HABITAI cockpit unifying ERP, CRM, logistics, inventory AI, marketing ops, and field apps. Sole hands-on technology owner—architecture, build, and ops—with leadership on ROI (self-hosted stack and FinOps, not SaaS sprawl).",
+  "summary": "Digital Transformation Lead and AI/Automation Engineer with 6+ years owning architecture, governed data platforms, and production automation across a four-brand industrial group (HABITARMOS / ESTORESRAINHA). Sole hands-on technology owner—architecture, build, and ops—with leadership on ROI (self-hosted stack and FinOps, not SaaS sprawl).",
   "highlights": [
     {
       "label": "Production workflows (n8n, 7 days)",
@@ -48,7 +48,7 @@
       "role": "Digital Transformation Lead & AI/Automation Engineer",
       "period": "Jan 2026 · Present",
       "bullets": [
-        "Built HABITAI operations cockpit across 4 brands: MCP agent orchestration, multimodal RAG (Docling, ColPali, Qdrant), predictive inventory, Distribution 360, and executive KPI dashboards."
+        "Built the HABITAI operations cockpit across four brands: read-only MCP agent orchestration, multimodal RAG (Docling, ColPali, Qdrant), predictive inventory, Distribution 360, and executive KPI dashboards."
       ]
     },
     {
@@ -57,7 +57,7 @@
       "role": "Senior AI Systems and Automation Engineer",
       "period": "Jan 2024 · Dec 2025",
       "bullets": [
-        "Shipped the PHC ERP cloud read replica (Oct 2026): wave-4 allowlisted PHC tables, dbt marts, and PII-scoped agent roles decoupling CRM and workflows from on-prem SQL Server."
+        "Engineered the orcamentos-ia quoting platform (FastAPI, React): 124k+ deterministic pricing tiers across 20+ supplier price-list plug-ins with Docling/Celery PDF ingestion, cutting multi-brand quote turnaround from days to minutes with zero price hallucination."
       ]
     },
     {
@@ -336,8 +336,8 @@
       "problem": "ALYGEN R&D experiment (https://github.com/alyekseyenko/praxis-alygen): I tested whether coding agents can run safely in disposable Docker sandboxes with deterministic pytest/compiler gates, Langfuse/OpenTelemetry observability, human git-diff approval in Mission Control (React 19), and pgvector instincts from approved changes.",
       "built": "Solo builder · harness design, sandbox security model, MCP/Antigravity integration",
       "impact": [
-        "Validated pattern: agents do not self-grade · only objective tests unlock progress",
-        "Reusable Mission Control UX for approve/reject with feedback",
+        "Runs coding agents inside disposable Docker sandboxes with deterministic pytest/compiler gates so agents never self-grade",
+        "Mission Control UI (React 19) enforces human git-diff approval with pgvector instinct memory and Langfuse/OpenTelemetry traces",
         "Instinct memory reduces repeated architectural mistakes across tasks"
       ],
       "tech": [
